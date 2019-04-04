@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# must have libtool, autoconf installed
+# run in thecpputest dowload directory
+./autogen.sh
+mkdir a_build_dir && cd a_build_dir
+../configure
+make
+make check
+
