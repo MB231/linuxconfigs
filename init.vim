@@ -29,6 +29,11 @@ set number
 hi LineTooLong cterm=italic ctermbg=grey ctermfg=red
 :match LineTooLong /\%>80v.\+/
 
+"sets jk and kj for escape
+"inoremap jk <Esc>
+"inoremap kj <Esc>
+inoremap <C-Space> <Esc>
+
 "Format settings
 set shiftwidth=4
 "smartindent context based indenting can be problematic
