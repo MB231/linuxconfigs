@@ -8,7 +8,7 @@ SHELL = /bin/sh
 #Done to improve portability. First line clears list, second adds only suffixes
 #needed for this particular makefile.
 .SUFFIXES:
-.SUFFIXES: .c .o
+.SUFFIXES: .c .o .cpp .hpp .s
 
 #MACROS
 
@@ -30,9 +30,9 @@ SRC_DIR ?= ./src
 #makes list of source files of cpp, c and assembly (commented out)
 C_SRC := $(shell find $(SRC_DIR) -name *.c)
 
-#CPP_SRC := $(shell find $(SRC_DIR) -name *.cpp)
-#ASMB_SRC := $(shell find $(SRC_DIR) -name *.s)
-#ALL_SRC_F := $(shell find $(SRC_DIR) -name *.s -or -name *.cpp -or -name *.c)
+CPP_SRC := $(shell find $(SRC_DIR) -name *.cpp)
+ASMB_SRC := $(shell find $(SRC_DIR) -name *.s)
+ALL_SRC_F := $(shell find $(SRC_DIR) -name *.s -or -name *.cpp -or -name *.c)
 
 
 #makes list of c object files in build dir (generic vers commented out)
