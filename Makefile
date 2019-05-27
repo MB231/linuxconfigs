@@ -91,17 +91,16 @@ $(BUILD_DIR)/%.c.o : %.c
 
 
 #generic version
+>>>>>>> refs/remotes/origin/master
 #Rule below compiles all .c files to .o files, -c compiles and does not link(ma
 #kes .o files) -o for named file output
 #$@ is target of rule (target is left of : and right is prereqs for that target
 # % is pattern rule prereq (finds all matching following pattern), $<name of 
 #first prereq, $^ names of all prereq with spaces between.
 
-#%*.o : %*.c
-#	$(CC) $< -o $@ $(CFLAGS)
-
-#OTHER RULES
+%*.o : %*.c
+	$(CC) $< -o $@ $(CFLAGS)
 
 #@ symbol is used at beginning of recipe to not print execution
 clean:
-	@rm build -r
+	@rm -rf *.o
