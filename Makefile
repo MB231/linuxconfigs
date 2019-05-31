@@ -91,7 +91,6 @@ $(BUILD_DIR)/%.c.o : %.c
 
 
 #generic version
->>>>>>> refs/remotes/origin/master
 #Rule below compiles all .c files to .o files, -c compiles and does not link(ma
 #kes .o files) -o for named file output
 #$@ is target of rule (target is left of : and right is prereqs for that target
