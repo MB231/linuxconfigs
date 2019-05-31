@@ -25,13 +25,13 @@ set number
 "old syntax. Now using LineTooLong
 "highlight ColorColumn ctermbg=gray ctermfg=red cterm=italic
 
-"new syntax only highlights chars past 80 not a solid single column
+"new syntax only highlights chars past 120 not a solid single column
 hi LineTooLong cterm=italic ctermbg=grey ctermfg=red
-:match LineTooLong /\%>80v.\+/
+:match LineTooLong /\%>120v.\+/
 
 "sets jk and kj for escape
-"inoremap jk <Esc>
-"inoremap kj <Esc>
+inoremap jk <Esc>
+inoremap kj <Esc>
 inoremap <C-Space> <Esc>
 
 "Format settings
