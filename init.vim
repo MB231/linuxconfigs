@@ -1,4 +1,5 @@
-"multiple vim instances on same file config
+"MULTIPLE VIM INSTANCES ON SAME FILE CONFIG
+
 "**must enable focus events in tmux with 
 "(set -g focus-events on) in .tmux.conf
 "check for and load file changes
@@ -8,8 +9,15 @@ set noswapfile
 "enable refresh (using checktime) everytime cursorhold (4s stationary cursor).
 "This time length is configurable with updatetime. au=autocmd
 au CursorHold,CursorHoldI * checktime
+
+
+"STYLE AND REMAPS
+
 "set line numbers as default
 set number
+
+"HIGHLIGHT LONG LINES
+
 "set a colored column for all lines over 80 chars long. set columns sets for
 "wrap length. set wrap lbr will wrap long lines automatically. Comments may
 "wrap automatically (as in this init file) but not outside of them.
@@ -25,14 +33,34 @@ set number
 "old syntax. Now using LineTooLong
 "highlight ColorColumn ctermbg=gray ctermfg=red cterm=italic
 
-"new syntax only highlights chars past 80 not a solid single column
+"new syntax only highlights chars past 120 not a solid single column
 hi LineTooLong cterm=italic ctermbg=grey ctermfg=red
-:match LineTooLong /\%>80v.\+/
+:match LineTooLong /\%>120v.\+/
 
-"sets jk and kj for escape
+"REMAPS
+
+"<mode>map - standard map recusive
+"<mode>noremap - map not recursive
+"<mode>unmap - unmap a key so it is not used
+"n (normal), i (insert/replace), v (visual/select), x (visual), s (select)
+"c (command line mode), o (operator pending)
+
+"let is for setting variables and set is for setting options
+
+"leader key for use in functions as a corded key to activated
+let mapleader="\<Space>"
+"half page up down remap
+nnoremap <C-j> <C-u>
+nnoremap <C-k> <C-d>
+"esc key remaps
 inoremap jk <Esc>
 inoremap kj <Esc>
 inoremap <C-Space> <Esc>
+"autoclose
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap " ""<left>
 
 "Format settings
 set shiftwidth=4
@@ -56,6 +84,16 @@ set autoindent
 "should be & but not seen in nvim
 :set list
 
+"FUNCTIONS
+
+"move lines up and down without delete and paste
+"**up requies 2 spaces down 1 for some reason
+nnoremap <leader>k :m-2<cr>==
+nnoremap <leader>j :m+1<cr>==
+xnoremap <leader>k :m-2<cr>gv=gv
+xnoremap <leader>j :m'>-1<cr>gv=gv
+"
+"PLUGIN INSTALLS
 "begin plugin call
 call plug#begin()
 
