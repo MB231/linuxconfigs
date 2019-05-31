@@ -31,7 +31,6 @@ SRC_DIR ?= ./src
 
 #makes list of source files of cpp, c and assembly (commented out)
 C_SRC := $(shell find $(SRC_DIR) -name *.c)
-
 CPP_SRC := $(shell find $(SRC_DIR) -name *.cpp)
 ASMB_SRC := $(shell find $(SRC_DIR) -name *.s)
 ALL_SRC_F := $(shell find $(SRC_DIR) -name *.s -or -name *.cpp -or -name *.c)
@@ -40,7 +39,6 @@ ALL_SRC_F := $(shell find $(SRC_DIR) -name *.s -or -name *.cpp -or -name *.c)
 #makes list of object files in build dir (C only version commented out)
 #OBJS := $(C_SRC:%=$(BUILD_DIR)/%.o)
 OBJS := $(ALL_SRC_F:%=$(BUILD_DIR)/%.o)
-
 
 #-D is macro define flag and g3 is highest debug inclusion level
 DEBUG_FLAGS = -D DEBUG -g3
@@ -58,6 +56,7 @@ CPP = g++ -std=c++11
 #MP(preprocessor flag)-adds phony target for each dependency other than main 
 #file so each depend on nothing
 CPPFLAGS ?= $(CFLAGS) -MMD -MP
+
 
 #INCLUDES
 LIB_FLAGS = #-l
@@ -80,7 +79,6 @@ DEPS := $(OBJS:.o=.d)
 #links and puts target in build directory
 $(BUILD_DIR)/$(TARGET_EXEC) : $(OBJS)
 	$(CPP) $(OBJS) -o $@ $(LFLAGS)
-
 
 #DEPENDENCY RULES
 
@@ -108,7 +106,6 @@ $(BUILD_DIR)/%.cpp.o : %.cpp
 
 
 #generic version
-
 #Rule below compiles all .c files to .o files, -c compiles and does not link(ma
 #kes .o files) -o for named file output
 #$@ is target of rule (target is left of : and right is prereqs for that target
@@ -123,6 +120,3 @@ $(BUILD_DIR)/%.cpp.o : %.cpp
 #@ symbol is used at beginning of recipe to not print execution
 clean:
 	@rm -rf $(BUILD_DIR)
-
-
-
