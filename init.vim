@@ -4,8 +4,7 @@
 "(set -g focus-events on) in .tmux.conf
 "check for and load file changes
 autocmd WinEnter,BufWinEnter,FocusGained * checktime
-"disable swapfile to avoid errors on load
-set noswapfile
+"disable swapfile to avoid errors on load set noswapfile
 "enable refresh (using checktime) everytime cursorhold (4s stationary cursor).
 "This time length is configurable with updatetime. au=autocmd
 au CursorHold,CursorHoldI * checktime
@@ -50,19 +49,28 @@ hi LineTooLong cterm=italic ctermbg=grey ctermfg=red
 "leader key for use in functions as a corded key to activated
 let mapleader="\<Space>"
 "half page up down remap
-nnoremap <C-j> <C-u>
-nnoremap <C-k> <C-d>
+nnoremap <C-k> <C-u>
+nnoremap <C-j> <C-d>
 "esc key remaps
 inoremap jk <Esc>
 inoremap kj <Esc>
-inoremap <C-Space> <Esc>
+
 "autoclose
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap " ""<left>
 
-"Format settings
+"S-Tab autocomplete with deoplete plugin. Left Tab in case of makefile use.
+"**Tab example below using up through list command remap
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+
+"nerdtreetoggole on/off
+map <C-d> :NERDTreeToggle<CR>
+
+"FORMAT SETTINGS
+
 set shiftwidth=4
 "smartindent context based indenting can be problematic
 set nosmartindent
@@ -92,8 +100,10 @@ nnoremap <leader>k :m-2<cr>==
 nnoremap <leader>j :m+1<cr>==
 xnoremap <leader>k :m-2<cr>gv=gv
 xnoremap <leader>j :m'>-1<cr>gv=gv
-"
+
 "PLUGIN INSTALLS
+"use :PlugInstall! and PlugUpdate to install or update
+
 "begin plugin call
 call plug#begin()
 
@@ -106,14 +116,13 @@ call plug#begin()
 "see https://github.com/junegunn/vim-plug for other options
 "
 
-Plug 'SirVer/ultisnips'
-Plug 'roxma/nvim-completion-manager'
 "Python,Elixir,Falcon,HTML,Django,Javascript,Markdown,PHP,Ruby,
 "Scala,Supercolider Snippets 
 Plug 'honza/vim-snippets'
 "clang based auto complete, YouCompleteMe more full featured, but
 "not async and complicated. Requires neovim/vim8 if vim8 other 
-"plugins required and python3
+"plugins required and python3.
+"$pip3 install --user --upgrade pynvim //use to update neovim python module
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
 else
