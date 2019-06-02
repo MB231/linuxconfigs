@@ -60,6 +60,8 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 inoremap " ""<left>
+"to toggle tagbar on/off.
+nnoremap <F8> :TagbarToggle<CR>
 
 "S-Tab autocomplete with deoplete plugin. Left Tab in case of makefile use.
 "**Tab example below using up through list command remap
@@ -67,7 +69,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 "inoremap <expr> <Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
 
 "nerdtreetoggole on/off
-map <C-d> :NERDTreeToggle<CR>
+noremap <F7> :NERDTreeToggle<CR>
+noremap <C-d> :NERDTreeToggle<CR>
 
 "FORMAT SETTINGS
 
@@ -131,20 +134,22 @@ else
 	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-"browse tags in file
+"browse tags in file use :TagbarToggle<CR> to see. Mapped to F8 above
+"needs universal ctags to work/
 Plug 'majutsushi/tagbar'
 "tag management
 Plug 'ludovicchabant/vim-gutentags'
 "adds better status bar powerline is an alternative but heavier
 Plug 'vim-airline/vim-airline'
-"multiple cursor plugin
-Plug 'terryma/vim-multiple-cursors'
+"multiple cursor plugin. haven't been using
+"Plug 'terryma/vim-multiple-cursors'
 "filetree browser for quick edits/visual inspection
 Plug 'scrooloose/nerdtree'
-"allows addition of characters to both sides of selected text
-Plug 'tpope/vim-surround'
-"adds repeat . support for surround.vim speeddating.vim unimpaired.vim
-"and vim-easyclip.vim
+"allows addition of characters to both sides of selected text. switched to
+"using mapings to generate. other functions not used
+"Plug 'tpope/vim-surround'
+"makes repeat '.' work after a plugin map for entire mapping rather than only
+"the native command in the map.
 Plug 'tpope/vim-repeat'
 "adds emacs style kill ring to vim
 Plug 'vim-scripts/YankRing.vim'
