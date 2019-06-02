@@ -36,4 +36,4 @@ cd ctags
 ./autogen.sh || ./configure || make || sudo make install
 
 echo "remember to add init.vim to ~/.config/nvim and use :UpdateRemotePlugins in nvim for python modules"
-
+echo "Also use PlugInstall! to install in in nvim"
