@@ -119,8 +119,11 @@ call plug#begin()
 "see https://github.com/junegunn/vim-plug for other options
 "
 
+"snippet plugin python based
+Plug 'SirVer/ultisnips'
+
 "Python,Elixir,Falcon,HTML,Django,Javascript,Markdown,PHP,Ruby,
-"Scala,Supercolider Snippets 
+"Scala,Supercolider Snippets for ultisnips to use
 Plug 'honza/vim-snippets'
 "clang based auto complete, YouCompleteMe more full featured, but
 "not async and complicated. Requires neovim/vim8 if vim8 other 
