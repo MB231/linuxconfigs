@@ -9,6 +9,9 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 "This time length is configurable with updatetime. au=autocmd
 au CursorHold,CursorHoldI * checktime
 
+"ALE LINTER CONFIG
+
+let g:ale_linters = {'cpp':['cppcheck']}
 
 "STYLE AND REMAPS
 
@@ -159,12 +162,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 "adds emacs style kill ring to vim
 Plug 'vim-scripts/YankRing.vim'
-
-"removed to see if I can replicate format natively
-"format/style configuration editor can trim whitespace, tab width, indent
-"max line and others.
-"Plug 'editorconfig/editorconfig-vim'
-
+"Async Linter Engine
+Plug 'w0rp/ale'
 
 "git plugins not being used yet
 "shows lines that differ or to be updated, git only
