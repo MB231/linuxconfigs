@@ -9,6 +9,6 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-
+alias python3="python3.6"
 #alias doesn't work, dir is appended to ls command if used.
 cdl () { cd "$@" && ls -a; }

@@ -4,7 +4,7 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28b/
 "	init.vim	/^inoremap " ""<left>$/;"	m
 $(BUILD_DIR)/$(TARGET_EXEC)	Makefile	/^$(BUILD_DIR)\/$(TARGET_EXEC) : $(OBJS)$/;"	t
 $(BUILD_DIR)/%.a.o	Makefile	/^$(BUILD_DIR)\/%.a.o : %.s$/;"	t
@@ -43,6 +43,7 @@ TARGET_EXEC	Makefile	/^TARGET_EXEC ?= test$/;"	m
 __MKDIR	Makefile	/^__MKDIR ?= mkdir -p$/;"	m
 clean	Makefile	/^clean:$/;"	t
 g:deoplete#enable_at_startup	init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
+g:python3_host_prog	init.vim	/^let g:python3_host_prog="\/usr\/bin\/python3.6"$/;"	v
 jk	init.vim	/^inoremap jk <Esc>$/;"	m
 kj	init.vim	/^inoremap kj <Esc>$/;"	m
 main	test.c	/^int main(int argc, char * argv[])$/;"	f	typeref:typename:int

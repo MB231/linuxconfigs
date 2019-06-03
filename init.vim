@@ -107,17 +107,20 @@ xnoremap <leader>j :m'>-1<cr>gv=gv
 "PLUGIN INSTALLS
 "use :PlugInstall! and PlugUpdate to install or update
 
+"must set python3 host manually in centos7 as it doesn't natively support python3
+let g:python3_host_prog="/usr/bin/python3.6"
+
 "begin plugin call
 call plug#begin()
 
 "example Plug
 "Plug 'junegunn/vim-easy-align'
-"
+
 "example unmanaged plugin (manually installed and updated
 "Plug '~/my-prototype-plugin'
-"
+
 "see https://github.com/junegunn/vim-plug for other options
-"
+
 
 "snippet plugin python based
 Plug 'SirVer/ultisnips'
