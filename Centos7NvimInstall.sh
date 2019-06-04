@@ -17,10 +17,12 @@ sudo yum groupinstall development
 sudo yum install https://centos7.iuscommunity.org/ius-release.rpm
 sudo yum install python36u
 sudo yum install python36u-devel
+sudo yum install python36u-pip
 #uses command sub $(command) to check if python 2 is still called by python command
 
 sudo yum install neovim
 sudo pip install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
+sudo pip3.6 install --upgrade neovim #for 3.6 version python as well
 #move and create ~/.local/share/nvim/site/autoload to add plug.vim
 cd
 cd .local/share

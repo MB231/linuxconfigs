@@ -9,6 +9,9 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 "This time length is configurable with updatetime. au=autocmd
 au CursorHold,CursorHoldI * checktime
 
+"ALE LINTER CONFIG
+
+"let g:ale_linters = {'cpp':['cppcheck']}
 
 "STYLE AND REMAPS
 
