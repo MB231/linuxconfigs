@@ -42,7 +42,6 @@ TARGET_EXEC	Makefile	/^TARGET_EXEC ?= test$/;"	m
 [	init.vim	/^inoremap [ []<left>$/;"	m
 __MKDIR	Makefile	/^__MKDIR ?= mkdir -p$/;"	m
 clean	Makefile	/^clean:$/;"	t
-g:ale_linters	init.vim	/^let g:ale_linters = {'cpp':['cppcheck', 'clangtidy']}$/;"	v
 g:deoplete#enable_at_startup	init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
 g:python3_host_prog	init.vim	/^let g:python3_host_prog="\/usr\/bin\/python3.6"$/;"	v
 jk	init.vim	/^inoremap jk <Esc>$/;"	m

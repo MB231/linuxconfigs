@@ -10,6 +10,7 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 au CursorHold,CursorHoldI * checktime
 
 "ALE LINTER CONFIG
+
 "uncomment to specify which linters to use for that language
 "let g:ale_linters = {'cpp':['cppcheck', 'clangtidy']}
 
@@ -150,22 +151,24 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 "adds better status bar powerline is an alternative but heavier
 Plug 'vim-airline/vim-airline'
-"multiple cursor plugin. haven't been using
-"Plug 'terryma/vim-multiple-cursors'
 "filetree browser for quick edits/visual inspection
 Plug 'scrooloose/nerdtree'
-"allows addition of characters to both sides of selected text. switched to
-"using mapings to generate. other functions not used
-"Plug 'tpope/vim-surround'
 "makes repeat '.' work after a plugin map for entire mapping rather than only
 "the native command in the map.
 Plug 'tpope/vim-repeat'
 "adds emacs style kill ring to vim
 Plug 'vim-scripts/YankRing.vim'
-"Async Linter Engine
+"Asynchronous Linter engine for linting and format support. Can do Language
+"Server Protocol as well
 Plug 'w0rp/ale'
 
 "git plugins not being used yet
+
+"allows addition of characters to both sides of selected text. Removed since I
+"switched to using mapings to generate and other functions not used
+"Plug 'tpope/vim-surround'
+"multiple cursor plugin. haven't been using
+"Plug 'terryma/vim-multiple-cursors'
 "shows lines that differ or to be updated, git only
 "Plug 'airblade/vim-gitgutter'
 "shows lines that differ or to be updated, for multiple VCS
