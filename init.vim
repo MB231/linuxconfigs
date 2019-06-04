@@ -10,8 +10,8 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 au CursorHold,CursorHoldI * checktime
 
 "ALE LINTER CONFIG
-
-let g:ale_linters = {'cpp':['cppcheck']}
+"uncomment to specify which linters to use for that language
+"let g:ale_linters = {'cpp':['cppcheck', 'clangtidy']}
 
 "STYLE AND REMAPS
 
