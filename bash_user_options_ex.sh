@@ -23,11 +23,11 @@ while getopts ":hte:" opt; do #opt holds value of CURRENT option
             e_argument=$OPTARG
         ;;
         : )  #NOT A CASE IF SUBCOMMAND
-            echo "invalid option: $OPTARG requires and argument" 1>$2
+            echo "invalid option: $OPTARG requires and argument" 1>&2
         ;;
         \?)
             #default statement getops returns ? for invalid options. bash backslash
-            echo "invalid option; $OPTARG" 1>$2
+            echo "invalid option; $OPTARG" 1>&2 # echoes stderr on stdout
         ;;
     esac
 done #more than 1 done in subcommand implementation. One for each subcommand.
