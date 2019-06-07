@@ -44,6 +44,11 @@ __MKDIR	Makefile	/^__MKDIR ?= mkdir -p$/;"	m
 clean	Makefile	/^clean:$/;"	t
 g:deoplete#enable_at_startup	init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
 g:python3_host_prog	init.vim	/^let g:python3_host_prog="\/usr\/bin\/python3.6"$/;"	v
+handle_backup	backup_logs.sh	/^handle_backup() {$/;"	f
+handle_backup1	backup_logs.sh	/^handle_backup1() {$/;"	f
+handle_error	backup_logs.sh	/^handle_error() {$/;"	f
+handle_help	backup_logs.sh	/^handle_help() {$/;"	f
+handle_version	backup_logs.sh	/^handle_version() {$/;"	f
 jk	init.vim	/^inoremap jk <Esc>$/;"	m
 kj	init.vim	/^inoremap kj <Esc>$/;"	m
 main	test.c	/^int main(int argc, char * argv[])$/;"	f	typeref:typename:int
