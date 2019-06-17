@@ -55,8 +55,11 @@ cd ctags
 make
 sudo make install
 
+echo "Installing Nodejs, NVM and Yarn for COC plugin"
 cp ~/linuxconfigs/init.vim ~/.config/nvim
+cp ~/linuxconfigs/config/* ~/.config/nvim/
 python -V
 python3.6 -V
+
 echo "\n\n\nremember to add init.vim to ~/.config/nvim and use :UpdateRemotePlugins in nvim for python modules"
 echo "Also use PlugInstall! to install in in nvim and check python 2 is still installed correctly"
