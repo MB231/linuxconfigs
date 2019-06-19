@@ -5,22 +5,10 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/3fdf28b/
-"	init.vim	/^inoremap " ""<left>$/;"	m
 $(BUILD_DIR)/$(TARGET_EXEC)	Makefile	/^$(BUILD_DIR)\/$(TARGET_EXEC) : $(OBJS)$/;"	t
 $(BUILD_DIR)/%.a.o	Makefile	/^$(BUILD_DIR)\/%.a.o : %.s$/;"	t
 $(BUILD_DIR)/%.c.o	Makefile	/^$(BUILD_DIR)\/%.c.o : %.c$/;"	t
 $(BUILD_DIR)/%.cpp.o	Makefile	/^$(BUILD_DIR)\/%.cpp.o : %.cpp$/;"	t
-(	init.vim	/^inoremap ( ()<left>$/;"	m
-<C-d>	init.vim	/^noremap <C-d> :NERDTreeToggle<CR>$/;"	m
-<C-j>	init.vim	/^nnoremap <C-j> <C-d>$/;"	m
-<C-k>	init.vim	/^nnoremap <C-k> <C-u>$/;"	m
-<F7>	init.vim	/^noremap <F7> :NERDTreeToggle<CR>$/;"	m
-<F8>	init.vim	/^nnoremap <F8> :TagbarToggle<CR>$/;"	m
-<S-Tab>	init.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-n>" : "\\<S-Tab>"$/;"	m
-<leader>j	init.vim	/^nnoremap <leader>j :m+1<cr>==$/;"	m
-<leader>j	init.vim	/^xnoremap <leader>j :m'>-1<cr>gv=gv$/;"	m
-<leader>k	init.vim	/^nnoremap <leader>k :m-2<cr>==$/;"	m
-<leader>k	init.vim	/^xnoremap <leader>k :m-2<cr>gv=gv$/;"	m
 ALL_SRC_F	Makefile	/^ALL_SRC_F := $(shell find $(SRC_DIR) -name *.s -or -name *.cpp -or -name *.c)$/;"	m
 ASMB_SRC	Makefile	/^ASMB_SRC := $(shell find $(SRC_DIR) -name *.s)$/;"	m
 BUILD_DIR	Makefile	/^BUILD_DIR ?= .\/build$/;"	m
@@ -39,13 +27,6 @@ OBJS	Makefile	/^OBJS := $(ALL_SRC_F:%=$(BUILD_DIR)\/%.o)$/;"	m
 SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
 SRC_DIR	Makefile	/^SRC_DIR ?= .\/src$/;"	m
 TARGET_EXEC	Makefile	/^TARGET_EXEC ?= test$/;"	m
-[	init.vim	/^inoremap [ []<left>$/;"	m
 __MKDIR	Makefile	/^__MKDIR ?= mkdir -p$/;"	m
 clean	Makefile	/^clean:$/;"	t
-g:deoplete#enable_at_startup	init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
-g:python3_host_prog	init.vim	/^let g:python3_host_prog="\/usr\/bin\/python3.6"$/;"	v
-jk	init.vim	/^inoremap jk <Esc>$/;"	m
-kj	init.vim	/^inoremap kj <Esc>$/;"	m
 main	test.c	/^int main(int argc, char * argv[])$/;"	f	typeref:typename:int
-mapleader	init.vim	/^let mapleader="\\<Space>"$/;"	v
-{	init.vim	/^inoremap { {}<left>$/;"	m

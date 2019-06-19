@@ -11,5 +11,15 @@ au CursorHold,CursorHoldI * checktime
 
 "ALE LINTER CONFIG
 
-"let g:ale_linters = {'cpp':['cppcheck', 'clangtidy']}
+let g:ale_linters = {'cpp':['cppcheck', 'gcc', 'clangtidy']}
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
 
+"LANGUAGE SERVERS VIM-LSP
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif

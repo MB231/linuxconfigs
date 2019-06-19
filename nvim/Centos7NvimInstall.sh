@@ -56,8 +56,34 @@ make
 sudo make install
 
 echo "Installing Nodejs, NVM and Yarn for COC plugin"
-cp ~/linuxconfigs/init.vim ~/.config/nvim
-cp ~/linuxconfigs/config/* ~/.config/nvim/
+echo "Requires gcc and make"
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
+sudo yum install nodejs
+sudo npm install yarn -g
+
+#using cquery ccls cannot get clang directory for compiler
+#echo "Installing ccls"
+#pushd .
+#git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+#cd ccls
+#cmake3 -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/path/to/clang+llvm-xxx
+#cmake3 --build Release
+#popd
+
+#using vim-lsp with clangd, but this is viable option.
+#COMPILER MUST BE CHANGED TO CLANG 5 OR GCC 6 and above
+#echo "Installing ccls REMEMBER TO CHANGE COC JSON CONFIG"
+#pushd .
+#git clone --recursive https://github.com/cquery-project/cquery.git
+#cd cquery
+#git submodule update --init
+#mkdir build && cd build
+#cmake3 .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=release -DCMAKE_EXPORT_COMPILE_COMMANDS=YES  -D CMAKE_C_COMPILER=/opt/rh/llvm-toolset-7/root/usr/bin/clang -D CMAKE_CXX_COMPILER=/opt/rh/llvm-toolset-7/root/usr/bin/clang++
+#cmake3 --build .
+#cmake3 --build . --target install
+
+cp ~/linuxconfigs/nvim/init.vim ~/.config/nvim
+cp ~/linuxconfigs/nvim/config/* ~/.config/nvim/
 python -V
 python3.6 -V
 

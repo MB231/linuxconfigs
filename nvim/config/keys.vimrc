@@ -10,9 +10,6 @@
 
 "leader key for use in functions as a corded key to activated
 let mapleader="\<Space>"
-"half page up down remap
-nnoremap <C-k> <C-u>
-nnoremap <C-j> <C-d>
 "esc key remaps
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -32,11 +29,15 @@ nnoremap <F8> :TagbarToggle<CR>
 "S-Tab autocomplete with deoplete plugin. Left Tab in case of makefile use.
 "**Tab example below using up through list command remap
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
-"inoremap <expr> <Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+""inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
-"nerdtreetoggole on/off
+"nerdtreetoggle on/off
 noremap <F7> :NERDTreeToggle<CR>
 "noremap <C-d> :NERDTreeToggle<CR>
+
+"ale error skip to
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 "FORMAT SETTINGS
 
@@ -70,3 +71,14 @@ nnoremap <leader>k :m-2<cr>==
 nnoremap <leader>j :m+1<cr>==
 xnoremap <leader>k :m-2<cr>gv=gv
 xnoremap <leader>j :m'>-1<cr>gv=gv
+
+"COC tab completion. Uses <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
