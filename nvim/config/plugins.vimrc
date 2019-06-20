@@ -58,6 +58,11 @@ let g:ale_cpp_gcc_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variabl
 let g:ale_cpp_clang_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
 let g:ale_cpp_cppcheck_options = '--enable=all --inconclusive --inline-suppr'
 
+"clang-format plugins. vimproc is a an async library, operator is a setup
+"plugin for operator keys
+Plug 'rhysd/vim-clang-format'
+Plug 'Shougo/vimproc.vim'
+Plug 'kana/vim-operator-user'
 
 "git plugins not being used yet
 "shows lines that differ or to be updated, git only
