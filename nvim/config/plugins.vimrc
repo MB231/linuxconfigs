@@ -1,11 +1,15 @@
 "PLUGIN INSTALLS
 "use :PlugInstall! and PlugUpdate to install or update
 
-"must set python3 host manually in centos7 as it doesn't natively support python3
-let g:python3_host_prog="/usr/bin/python3.6"
-
 "begin plugin call
 call plug#begin()
+"LSP enabled tagbar. fork of original tagbar
+Plug 'liuchengxu/vista.vim'
+
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 "clang based auto complete, YouCompleteMe more full featured, but
 "not async and complicated. Requires neovim/vim8 if vim8 other 
 "plugins required and python3.
@@ -19,44 +23,33 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
-"vim-lsp for language server protocol client. async is a seperate, but
-"required plugin for neovim vim8 async normalization. Also requires plugin for
-"deoplete to use it as a source.
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'lighttiger2505/deoplete-vim-lsp'
 "snippet plugin python based
 Plug 'SirVer/ultisnips'
 
 "Python,Elixir,Falcon,HTML,Django,Javascript,Markdown,PHP,Ruby,
 "Scala,Supercolider Snippets for ultisnips to use
 Plug 'honza/vim-snippets'
-"browse tags in file use :TagbarToggle<CR> to see. Mapped to F8 above
-"needs universal ctags to work/
-Plug 'majutsushi/tagbar'
-"tag management
-""Plug 'ludovicchabant/vim-gutentags'
+
 "adds better status bar powerline is an alternative but heavier
 Plug 'vim-airline/vim-airline'
+
 "multiple cursor plugin. haven't been using
 "Plug 'terryma/vim-multiple-cursors'
 "filetree browser for quick edits/visual inspection
 Plug 'scrooloose/nerdtree'
+
 "allows addition of characters to both sides of selected text. switched to
 "using mapings to generate. other functions not used
 "Plug 'tpope/vim-surround'
 "makes repeat '.' work after a plugin map for entire mapping rather than only
 "the native command in the map.
 Plug 'tpope/vim-repeat'
+
 "adds emacs style kill ring to vim
 Plug 'vim-scripts/YankRing.vim'
+
 "Async Linter Engine
 Plug 'w0rp/ale'
-"cpp linter options
-"can also set with list if a list of strings expected let g:ale-gcc-options: {"option": "optionchoice", "otheroption" : "optionchoice"}
-let g:ale_cpp_gcc_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
-let g:ale_cpp_clang_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
-let g:ale_cpp_cppcheck_options = '--enable=all --inconclusive --inline-suppr'
 
 "clang-format plugins. vimproc is a an async library, operator is a setup
 "plugin for operator keys
@@ -64,7 +57,24 @@ Plug 'rhysd/vim-clang-format'
 Plug 'Shougo/vimproc.vim'
 Plug 'kana/vim-operator-user'
 
+"LanguageClient-neovim. LSP integration with neovim
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+
+
+
+
 "git plugins not being used yet
+
+"moved to LSP no longer use for tag manager
+"browse tags in file use :TagbarToggle<CR> to see. Mapped to F8 above
+"needs universal ctags(recommended) or other ctag manager to work
+"Plug 'majutsushi/tagbar'
+"tag management
+""Plug 'ludovicchabant/vim-gutentags'
 "shows lines that differ or to be updated, git only
 "Plug 'airblade/vim-gitgutter'
 "shows lines that differ or to be updated, for multiple VCS
@@ -87,7 +97,17 @@ Plug 'kana/vim-operator-user'
 
 "use CocConfig to open user config file for COC"
 
+"vim-lsp removed for Language Client. Never worked with clangd, cquery
+"language servers"
 
+"vim-lsp for language server protocol client. async is a seperate, but
+"required plugin for neovim vim8 async normalization. Also requires plugin for
+"deoplete to use it as a source.
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"ALE is used for diagnostics. Gives warnings/errors w/o flags ALE has setup
+"for clang
+""Plug 'lighttiger2505/deoplete-vim-lsp'
 call plug#end()
 
 "example Plug

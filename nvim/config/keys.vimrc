@@ -20,11 +20,39 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap " ""<left>
 
+"ALE Keys"
 "to toggle ALE Detail
 nnoremap <F9> :ALEDetail<CR>
+"ale error skip to
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-"to toggle tagbar on/off.
-nnoremap <F8> :TagbarToggle<CR>
+
+"VISTA Keys
+"
+"to toggle Vista window on/off.
+nnoremap <F8> :Vista!!<CR>
+
+"LANGUAGECLIENT-NEOVIM Keys
+function SetLSPShortcuts()
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  "Allows LSP shortcuts for cpp or c. Add more file types for different
+  "languages"
+  autocmd FileType cpp,c call SetLSPShortcuts()
+augroup END
 
 "S-Tab autocomplete with deoplete plugin. Left Tab in case of makefile use.
 "**Tab example below using up through list command remap
@@ -34,10 +62,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 "nerdtreetoggle on/off
 noremap <F7> :NERDTreeToggle<CR>
 "noremap <C-d> :NERDTreeToggle<CR>
-
-"ale error skip to
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 "FORMAT SETTINGS
 
@@ -73,12 +97,12 @@ xnoremap <leader>k :m-2<cr>gv=gv
 xnoremap <leader>j :m'>-1<cr>gv=gv
 
 "COC tab completion. Uses <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+"
+"inoremap <silent><expr> <Tab>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<Tab>" :
+"      \ coc#refresh()

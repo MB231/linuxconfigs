@@ -9,20 +9,31 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 "This time length is configurable with updatetime. au=autocmd
 au CursorHold,CursorHoldI * checktime
 
+
+"must set python3 host manually in centos7 as it doesn't natively support python3
+let g:python3_host_prog="/usr/bin/python3.6"
+
+
 "ALE LINTER CONFIG
+
+"cpp linter options
+"can also set with list if a list of strings expected let g:ale-gcc-options: {"option": "optionchoice", "otheroption" : "optionchoice"}
+let g:ale_cpp_gcc_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
+let g:ale_cpp_clang_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
+let g:ale_cpp_cppcheck_options = '--enable=all --inconclusive --inline-suppr'
 
 let g:ale_linters = {'cpp':['cppcheck', 'gcc', 'clangtidy']}
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
+"lets deoplete do all completion
+let g:ale_completion_enabled = 0
 
-"LANGUAGE SERVERS VIM-LSP
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
+"VIM-LSP OPTIONS
+"lets ALE do diagnostics
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ }
 
 "VIM-CLANG-FORMAT OPTIONS
 "example below
@@ -46,3 +57,19 @@ let g:clang_format#auto_format_on_insert_leave = 1
 "autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+"VISTA TAGBAR
+"Indent Icon
+let g:vista_icon_indent = ["╰─> ", "├─> "]
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc 
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
