@@ -24,37 +24,16 @@ sudo yum install neovim
 sudo pip install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
 sudo pip3.6 install --upgrade neovim #for 3.6 version python as well
 #move and create ~/.local/share/nvim/site/autoload to add plug.vim
-cd
-cd .local/share
+cd ~/.local/share
 mkdir -p nvim/site/autoload
 cd nvim/site/autoload
 #retrieves plug.vim instead of cloning whole git
 wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #creates init.vim director since ubuntu does not have $XDG.CONFIG_HOME defined
 #so it doesn't create a default init.vim on install
-cd
-cd .config
-mkdir nvim
-echo " pkg-config and autoconf packages needed to install ctag plugins"
-sudo yum install pkg-config
-sudo yum install autoconf
-echo "packcc install and compile from git"
-cd ~
-git clone https://github.com/Leandros/PackCC.git
-cd PackCC
-gcc -o packcc src/packcc.c
-sudo cp packcc /usr/bin/
-echo "installing universal ctags from git"
-cd ~
-git clone https://github.com/universal-ctags/ctags.git
-cd ctags
-# configure --prefix=/where/you/want # defaults to /usr/local 
-# make install requires root to put files in /usr/bin
-./autogen.sh
-./configure
-make
-sudo make install
+mkdir ~/.config/nvim
 
+#no longer using COC but node is good to have
 echo "Installing Nodejs, NVM and Yarn for COC plugin"
 echo "Requires gcc and make"
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
@@ -81,6 +60,28 @@ sudo npm install yarn -g
 #cmake3 .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=release -DCMAKE_EXPORT_COMPILE_COMMANDS=YES  -D CMAKE_C_COMPILER=/opt/rh/llvm-toolset-7/root/usr/bin/clang -D CMAKE_CXX_COMPILER=/opt/rh/llvm-toolset-7/root/usr/bin/clang++
 #cmake3 --build .
 #cmake3 --build . --target install
+
+#ctags installation. Switched to LSP no longer used
+#echo " pkg-config and autoconf packages needed to install ctag plugins"
+#sudo yum install pkg-config
+#sudo yum install autoconf
+#echo "packcc install and compile from git"
+#cd ~
+#git clone https://github.com/Leandros/PackCC.git
+#cd PackCC
+#gcc -o packcc src/packcc.c
+#sudo cp packcc /usr/bin/
+#echo "installing universal ctags from git"
+#cd ~
+#git clone https://github.com/universal-ctags/ctags.git
+#cd ctags
+# configure --prefix=/where/you/want # defaults to /usr/local 
+# make install requires root to put files in /usr/bin
+#./autogen.sh
+#./configure
+#make
+#sudo make install
+
 
 cp ~/linuxconfigs/nvim/init.vim ~/.config/nvim
 cp ~/linuxconfigs/nvim/config/* ~/.config/nvim/
