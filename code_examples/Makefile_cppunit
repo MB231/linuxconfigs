@@ -46,7 +46,7 @@ OBJS := $(ALL_SRC_F:%=$(BUILD_DIR)/%.o)
 DEBUG_FLAGS = -D DEBUG -g3
 #linker flags for CPP secondary step with .d files(compiler list of 
 #dependencies for that .o file)
-CPP_LFLAGS = 
+CPP_LFLAGS = -lcppunit 
 #max optimization with pedantic (ISOC/C++ and stops forbidden extensions)
 #and strict aliasing(pointers to same address warning)
 CFLAGS =  -O3 -Wall -Wextra -Wpedantic -Wstrict-aliasing
