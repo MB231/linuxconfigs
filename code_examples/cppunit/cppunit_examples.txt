@@ -22,7 +22,7 @@ public:
 class ComplexNumberTest : public CppUnit::TestFixture {
 private:
   Complex *m_10_1, *m_1_1, *m_11_2; //variables to be used in test
-protected:
+public:
   void setUp()    //overridden method to initialize variables
   {
     m_10_1 = new Complex( 10, 1 );
@@ -97,9 +97,6 @@ public:
     return suiteOfTests;
   }
 //same as with fixtures above
-private:
-  Complex *m_10_1, *m_1_1, *m_11_2; //variables to be used in test
-protected:
   void setUp()    //overridden method to initialize variables
   {
     m_10_1 = new Complex( 10, 1 );
@@ -123,12 +120,14 @@ protected:
   {
     CPPUNIT_ASSERT( *m_10_1 + *m_1_1 == *m_11_2 );
   }
+private:
+  Complex *m_10_1, *m_1_1, *m_11_2; //variables to be used in test
 };
 
-//Run in main.cpp using code below
+//Run in main.cpp using code below. Be sure to us -lcppunit when compiling
 #include <cppunit/ui/text/TestRunner.h>
 #include "ExampleTestCase.h" //test suite headers must be added in this method
-#include "ComplexNumberTest.h"
+#include "ComplexNumberTest.h" //above test is all in one file no .cpp file
 
 int main( int argc, char **argv)
 {
@@ -156,7 +155,7 @@ class ComplexNumberTest : public CppUnit::TestFixture  {
 //Rest of test fixture is unchanged
 private:
   Complex *m_10_1, *m_1_1, *m_11_2;
-protected:
+public:
   void setUp()
   {
     m_10_1 = new Complex( 10, 1 );
