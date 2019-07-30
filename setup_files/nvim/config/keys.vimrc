@@ -14,11 +14,11 @@ let mapleader="\<Space>"
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-"autoclose
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap " ""<left>
+"autoclose Got annoying 
+"inoremap ( ()<left>
+"inoremap [ []<left>
+"inoremap { {}<left>
+"inoremap " ""<left>
 
 "ALE Keys"
 "to toggle ALE Detail
