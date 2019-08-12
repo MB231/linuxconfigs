@@ -19,7 +19,7 @@ let g:python3_host_prog="/usr/bin/python3.6"
 "cpp linter options
 "can also set with list if a list of strings expected let g:ale-gcc-options: {"option": "optionchoice", "otheroption" : "optionchoice"}
 let g:ale_cpp_gcc_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
-let g:ale_cpp_clang_options = '-std=c++11 -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
+let g:ale_cpp_clang_options = '-std=c++11 -stdlib=libc++ -Wall -pedantic -Wextra -Wunused-variable Wunused-parameter fstack-protector -Wold-style-cast -Wunreachable-code -Wuninitialized -Werror'
 let g:ale_cpp_cppcheck_options = '--enable=all --inconclusive --inline-suppr'
 
 let g:ale_linters = {'cpp':['cppcheck', 'gcc', 'clangtidy']}
@@ -28,7 +28,7 @@ let g:ale_linters_explicit = 1
 "lets deoplete do all completion
 let g:ale_completion_enabled = 0
 
-"VIM-LSP OPTIONS
+"LANGUAGECLIENT LSP OPTIONS
 "lets ALE do diagnostics
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
@@ -61,6 +61,10 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 "VISTA TAGBAR
 "Indent Icon
 let g:vista_icon_indent = ["╰─> ", "├─> "]
+"detailed info of current cursor symbol will be in cmd line and scroll
+let g:vista_echo_cursor_strategy = "both"
+"change sidebar width from default 30
+let g:vista_sidebar_width = 50
 
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')

@@ -1,5 +1,6 @@
 "REMAPS
 
+
 "<mode>map - standard map recusive
 "<mode>noremap - map not recursive
 "<mode>unmap - unmap a key so it is not used
@@ -14,7 +15,15 @@ let mapleader="\<Space>"
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-"autoclose Got annoying 
+"TERMINAL BUFFER remaps for it's esc
+tnoremap jk <C-\><C-n> 
+tnoremap kj <C-\><C-n>
+
+"resize windows width
+nnoremap <silent> <F5> :vertical resize +5<CR>
+nnoremap <silent> <F4> :vertical resize -5<CR>
+
+"autoclose
 "inoremap ( ()<left>
 "inoremap [ []<left>
 "inoremap { {}<left>
