@@ -32,7 +32,7 @@ let g:ale_completion_enabled = 0
 "lets ALE do diagnostics
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['clangd'],
+  \ 'cpp': ['clangd', '-background-index',],
   \ }
 
 "VIM-CLANG-FORMAT OPTIONS

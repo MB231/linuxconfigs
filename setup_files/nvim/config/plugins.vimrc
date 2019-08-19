@@ -67,7 +67,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 
-
+nnoremap <F3> :call LanguageClient_contextMenu()<CR>
 
 
 "git plugins not being used yet
