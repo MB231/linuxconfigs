@@ -43,6 +43,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nnoremap <F8> :Vista!!<CR>
 
 "LANGUAGECLIENT-NEOVIM Keys
+nnoremap <F3> :call LanguageClient_contextMenu()<CR>
+
 function SetLSPShortcuts()
   nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
   nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>

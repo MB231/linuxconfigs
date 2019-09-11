@@ -67,9 +67,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 
-nnoremap <F3> :call LanguageClient_contextMenu()<CR>
-
-
 "git plugins not being used yet
 
 "moved to LSP no longer use for tag manager
