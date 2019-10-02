@@ -5,8 +5,11 @@
 "LSP to be handled by LanguageClient
 let g:ale_disable_lsp = 1
 
-
-let g:ale_linters = {'cpp':['cppcheck', 'gcc', 'clangtidy']}
+"cppcheck excluded due to excessive cpu usage
+let g:ale_linters = {
+                \ 'cpp':['gcc', 'clangtidy'],
+                \ 'c':['gcc', 'clangtidy'],
+                \ }
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
 "lets deoplete do all completion
@@ -24,15 +27,15 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_set_highlights = 1
 let g:ale_echo_cursor = 1
 let g:ale_set_signs = 1
-let g:ale_cursor_detail = 1
-"* By updating loclist. (On by default)             - |g:ale_set_loclist|
-"* By updating quickfix. (Off by default)           - |g:ale_set_quickfix|
-"* By setting error highlights.                     - |g:ale_set_highlights|
-"* By creating signs in the sign column.            - |g:ale_set_signs|
-"* By echoing messages based on your cursor.        - |g:ale_echo_cursor|
-"* By inline text based on your cursor.             - |g:ale_virtualtext_cursor|
-"* By displaying the preview based on your cursor.  - |g:ale_cursor_detail|
-"* By showing balloons for your mouse cursor        - |g:ale_set_balloons|
+let g:ale_set_virtualtext_cursor = 1
+"* By updating loclist. (On by default)                                  - |g:ale_set_loclist|
+"* By updating quickfix. (Off by default)                                - |g:ale_set_quickfix|
+"* By setting error highlights.                                          - |g:ale_set_highlights|
+"* By creating signs in the sign column.                                 - |g:ale_set_signs|
+"* By echoing messages based on your cursor.                             - |g:ale_echo_cursor|
+"* By inline text based on your cursor.                                  - |g:ale_virtualtext_cursor|
+"* By displaying the preview based on your cursor.                       - |g:ale_cursor_detail|
+"* By showing balloons for your mouse cursor. Doesn't work w/o gui       - |g:ale_set_balloons|
 
 "cpp linter options NO LONGER USED FOR REF ONLY
 "can also set with list if a list of strings expected let g:ale-gcc-options: {"option": "optionchoice", "otheroption" : "optionchoice"}
@@ -47,7 +50,7 @@ let g:ale_cursor_detail = 1
 
 
 "ALE LINTER DEFINES
-
+"TODO ADD C defines similiar to cpp versions
 "CLANGTIDY
 " Author: vdeurzen <tim@kompiler.org>, w0rp <devw0rp@gmail.com>,
 " gagbo <gagbobada@gmail.com>
@@ -99,7 +102,7 @@ call ale#linter#Define('cpp', {
 " Description: cppcheck linter for cpp files
 
 call ale#Set('cpp_cppcheck_executable', 'cppcheck')
-call ale#Set('cpp_cppcheck_options', '--enable=all --inconclusive --inline-suppr')
+call ale#Set('cpp_cppcheck_options', '--enable=style --inconclusive --inline-suppr')
 
 function! CPPCHeckGetCommand(buffer) abort
     let l:cd_command = ale#handlers#cppcheck#GetCdCommand(a:buffer)
@@ -161,6 +164,7 @@ call ale#linter#Define('cpp', {
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd', '-background-index',],
+  \ 'c': ['clangd', '-background-index',],
   \ }
 "Use if using older llvm. Background index not supported in llvm7
 "let g:LanguageClient_serverCommands = {
@@ -182,13 +186,6 @@ let g:clang_format#detect_style_file = 1
 "formats on leaving insert mode
 let g:clang_format#auto_format_on_insert_leave = 1
 
-" map to <Leader>cf in C++ code
-"autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-"autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-" if you install vim-operator-user
-"autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-" Toggle auto formatting:
-nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 "VISTA TAGBAR
 "Indent Icon

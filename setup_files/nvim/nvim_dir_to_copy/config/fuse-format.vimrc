@@ -1,7 +1,7 @@
 "disables formating if no .clang-format file found if 0
-let g:clang_format#enable_fallback_style = 0
+let g:clang_format#enable_fallback_style = 1
 let g:clang_format#detect_style_file = 1
-let g:clang_format#code_style = 'mozilla'
+let g:clang_format#code_style = 'google'
 let g:clang_format#style_options = {
             \   'AccessModifierOffset' : '-2',
             \   'AlignAfterOpenBracket' : 'Align',
@@ -16,14 +16,13 @@ let g:clang_format#style_options = {
             \   'AllowShortFunctionsOnASingleLine' : 'Inline',
             \   'AllowShortIfStatementsOnASingleLine' : 'true',
             \   'AllowShortLoopsOnASingleLine' : 'true',
-            \   'AlwaysBreakAfterReturnType' : 'TopLevel',
             \   'AlwaysBreakBeforeMultilineStrings' : 'false',
             \   'BinPackArguments' : 'false',
             \   "BinPackParameters" : "false",
             \   "BreakBeforeBinaryOperators" : "None",
             \   "BreakBeforeInheritanceComma" : "false",
             \   "BreakBeforeTernaryOperators" : "false",
-            \   "BreakConstructorInitializersBeforeComma" : "false",
+            \   "BreakConstructorInitializers " : "AfterColon",
             \   "BreakAfterJavaFieldAnnotations" : "false",
             \   "BreakStringLiterals" : "true",
             \   "ColumnLimit" :     "120",
@@ -54,7 +53,7 @@ let g:clang_format#style_options = {
             \   "PenaltyBreakString" : "1000",
             \   "PenaltyExcessCharacter" : "1000000",
             \   "PenaltyReturnTypeOnItsOwnLine" : "200",
-            \   "PointerAlignment" : "Left",
+            \   "PointerAlignment" : "Right",
             \   "ReflowComments" :  "true",
             \   "SortIncludes" :    "true",
             \   "SortUsingDeclarations" : "true",
@@ -67,9 +66,9 @@ let g:clang_format#style_options = {
             \   "SpacesInAngles" :  "false",
             \   "SpacesInContainerLiterals" : "true",
             \   "SpacesInCStyleCastParentheses" : "true",
-            \   "SpacesInParentheses" : "true",
-            \   "SpacesInSquareBrackets" : "true",
-            \   "Standard" :        "Cpp11",
+            \   "SpacesInParentheses" : "false",
+            \   "SpacesInSquareBrackets" : "false",
+            \   "Standard" :        "C++11",
             \   "TabWidth" :        "20",
             \   "UseTab" :          "Never"
             \}
