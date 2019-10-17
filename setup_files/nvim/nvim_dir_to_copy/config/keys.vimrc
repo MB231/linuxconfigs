@@ -29,6 +29,12 @@ nnoremap <silent> <F4> :vertical resize -5<CR>
 "inoremap { {}<left>
 "inoremap " ""<left>
 
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+" Disable paste mode when leaving insert mode
+autocmd InsertLeave * set nopaste
+
 "ALE Keys"
 "to toggle ALE Detail
 nnoremap <F9> :ALEDetail<CR>

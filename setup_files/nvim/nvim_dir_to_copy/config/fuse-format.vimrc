@@ -64,7 +64,7 @@ let g:clang_format#style_options = {
             \   "SpaceInEmptyParentheses" : "false",
             \   "SpacesBeforeTrailingComments" : "4",
             \   "SpacesInAngles" :  "false",
-            \   "SpacesInContainerLiterals" : "true",
+            \   "SpacesInContainerLiterals" : "false",
             \   "SpacesInCStyleCastParentheses" : "true",
             \   "SpacesInParentheses" : "false",
             \   "SpacesInSquareBrackets" : "false",
