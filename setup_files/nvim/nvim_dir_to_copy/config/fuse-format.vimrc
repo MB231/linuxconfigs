@@ -28,7 +28,7 @@ let g:clang_format#style_options = {
             \   "ColumnLimit" :     "120",
             \   "CompactNamespaces" : "false",
             \   "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
-            \   "ConstructorInitializerIndentWidth" : "4",
+            \   "ConstructorInitializerIndentWidth" : "12",
             \   "ContinuationIndentWidth" : "8",
             \   "Cpp11BracedListStyle" : "false",
             \   "DerivePointerAlignment" : "false",

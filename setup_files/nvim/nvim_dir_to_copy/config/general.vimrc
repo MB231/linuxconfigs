@@ -21,6 +21,6 @@ set number
 "highlight ColorColumn ctermbg=gray ctermfg=red cterm=italic
 
 "new syntax only highlights chars past 120 (FUSE) not a solid single column
-hi LineTooLong cterm=italic ctermbg=grey ctermfg=red
+hi LineTooLong cterm=italic ctermbg=grey ctermfg=black
 :match LineTooLong /\%>120v.\+/
 

@@ -1,5 +1,12 @@
 "Place for plugin configs that are too long for plugins.vimrc
 
+"MINIYANK CONFIG
+"persistant clipboard even for reboots
+let g:miniyank_filename = $HOME."/.miniyank.mpack"
+"number of items held default 10
+let g:miniyank_maxitems = 20
+"max lines yankable. default 1000
+let g:miniyank_delete_maxlines = 1000
 
 "ALE LINTER CONFIG
 "LSP to be handled by LanguageClient

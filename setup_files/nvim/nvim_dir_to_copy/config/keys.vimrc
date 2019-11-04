@@ -35,6 +35,29 @@ map <leader>pp :setlocal paste!<cr>
 " Disable paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
+"MINIYANK KEYS
+"Currently neovim doesn't have support for register types in the clipboard. This makes blockwise
+"yanking and putting broken when clipboard=unnamed or unnamedplus is used. When this option is
+"set, and "p" is mapped to "autoput" mappings as suggested, this plugin will try to correct
+"the register type when an unnamed paste is done. It uses heuristics that at least will work
+"if you yank blockwise and then immediately paste unnamed in the same or another nvim instance.
+"Of course, regardless if clipboard=unnamed is set or not, you can always do the correct paste
+"using a "startPut" mapping, or cycling one step back in history when needed.
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
+"startput takes most recent item in shared history
+map <leader>p <Plug>(miniyank-startput)
+map <leader>P <Plug>(miniyank-startPut)
+"cycle through history
+map <leader>n <Plug>(miniyank-cycle)
+"cycleback doesn't work
+map <leader>N <Plug>(miniyank-cycleback
+"change register type. done AFTER putting(first paste)
+"map <Leader>c <Plug>(miniyank-tochar)
+"map <Leader>l <Plug>(miniyank-toline)
+"map <Leader>b <Plug>(miniyank-toblock)
+"If Denite is installed, the yank history can be displayed using :Denite miniyank
+
 "ALE Keys"
 "to toggle ALE Detail
 nnoremap <F9> :ALEDetail<CR>
@@ -72,9 +95,11 @@ augroup LSP
 augroup END
 
 "S-Tab autocomplete with deoplete plugin. Left Tab in case of makefile use.
-"**Tab example below using up through list command remap
+"**Normal Tab example below using up through list command remap. Can't use
+"doesn't work with other functions and tab
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
-""inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 "nerdtreetoggle on/off
 noremap <F7> :NERDTreeToggle<CR>
@@ -111,7 +136,8 @@ set autoindent
 "autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>f :ClangFormatAutoToggle<CR>
-nmap <Leader>F :ClangFormat<CR>
+"nmap <Leader>F :ClangFormat<CR> format whole file
+nmap <Leader>F :ClangFormatAutoDisable<CR>
 
 "FUNCTIONS
 

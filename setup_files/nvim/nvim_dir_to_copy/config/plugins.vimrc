@@ -44,12 +44,13 @@ Plug 'scrooloose/nerdtree'
 "allows addition of characters to both sides of selected text. switched to
 "using mapings to generate. other functions not used
 "Plug 'tpope/vim-surround'
+
 "makes repeat '.' work after a plugin map for entire mapping rather than only
 "the native command in the map.
 Plug 'tpope/vim-repeat'
 
-"adds emacs style kill ring to vim
-Plug 'vim-scripts/YankRing.vim'
+"yank ring plugin
+Plug 'bfredl/nvim-miniyank'
 
 "Async Linter Engine
 Plug 'w0rp/ale'
@@ -68,6 +69,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 
 "git plugins not being used yet
+
+"deprecated in favor of more used miniyank
+"adds emacs style kill ring to vim
+"Plug 'vim-scripts/YankRing.vim'
 
 "moved to LSP no longer use for tag manager
 "browse tags in file use :TagbarToggle<CR> to see. Mapped to F8 above
