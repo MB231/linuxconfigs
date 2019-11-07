@@ -14,6 +14,9 @@ echo -e "making build dir and running cmake"
 mkdir build
 cd build
 cmake3 -DCMAKE_BUILD_TYPE=Release ../llvm
-
+pushd ./build
+make -j3
+sudo cmake3 --build . --target install
+popd
 
 echo -e "use make -j<# of proc> to compile"
