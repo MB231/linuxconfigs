@@ -21,7 +21,7 @@ sudo yum install python36u-pip
 #uses command sub $(command) to check if python 2 is still called by python command
 
 #to install from repo
-#sudo yum install neovim
+sudo yum install neovim
 
 sudo pip install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
 sudo pip3.6 install --upgrade neovim #for 3.6 version python as well
