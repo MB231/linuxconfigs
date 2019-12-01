@@ -10,4 +10,4 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 au CursorHold,CursorHoldI * checktime
 
 "must set python3 host manually in centos7 as it doesn't natively support python3
-let g:python3_host_prog="/usr/bin/python3.6"
+"let g:python3_host_prog="/usr/bin/python3.6"
