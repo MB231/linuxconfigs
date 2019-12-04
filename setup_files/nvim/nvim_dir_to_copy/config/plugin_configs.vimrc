@@ -178,6 +178,7 @@ let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd', '-background-index',],
   \ 'c': ['clangd', '-background-index',],
+  \ 'python': ['/usr/local/bin/pyls',]
   \ }
 "Use if using older llvm. Background index not supported in llvm7
 "let g:LanguageClient_serverCommands = {

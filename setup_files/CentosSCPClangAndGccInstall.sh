@@ -11,6 +11,7 @@ scl enable llvm-toolset-7 bash
 echo "Installing and enabling GCC 7"
 sudo yum install devtoolset-7
 scl enable devtoolset-7 bash
+gcc --version
 echo "not enabled by default"
 echo "should state \"gcc (GCC) 8.2.1 20180905 (Red Hat 8.2.1-3)\" if gcc8 was installed"
 echo "gcc8 is commented out by default"

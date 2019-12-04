@@ -3,28 +3,17 @@ echo "adding python dependencies for plugvim and nvim"
 
 echo "do not run sudo script will ask as required"
 #yum will not install any package past a fail. Seperate lines to debug install fail point
-sudo yum install epel-release #necessary before nvim install
-sudo yum install make
-sudo yum install automake
-sudo yum install libtool
-sudo yum install python-pip
+sudo dnf install make
+sudo dnf install automake
 
-#python 3 not available standard on centos7 used https://janikarhunen.fi/how-to-install-python-3-6-1-on-centos-7
-#to install 3.6 without disturbing python2 and it's pip. must call with python3.6 until alias and set
-# g:python3_host_prog to usr/bin/python3.6
-sudo yum install yum-utils
-sudo yum groupinstall development
-sudo yum install https://centos7.iuscommunity.org/ius-release.rpm
-sudo yum install python36u
-sudo yum install python36u-devel
-sudo yum install python36u-pip
+#pip3 installs with python37 package
+sudo dnf install python37
+sudo dnf install python37-devel
 #uses command sub $(command) to check if python 2 is still called by python command
 
-#to install from repo
-sudo yum install neovim
-
+sudo dnf install neovim
 sudo pip install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
-sudo pip3.6 install --upgrade neovim #for 3.6 version python as well
+sudo pip3 install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
 #move and create ~/.local/share/nvim/site/autoload to add plug.vim
 cd ~/.local/share
 mkdir -p nvim/site/autoload
@@ -39,7 +28,7 @@ mkdir ~/.config/nvim
 echo "Installing Nodejs, NVM and Yarn for COC plugin"
 echo "Requires gcc and make"
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
-sudo yum install nodejs
+sudo dnf install nodejs
 sudo npm install yarn -g
 
 #using cquery ccls cannot get clang directory for compiler
@@ -85,10 +74,10 @@ sudo npm install yarn -g
 #sudo make install
 
 
-cp ~/linuxconfigs/nvim/init.vim ~/.config/nvim
-cp ~/linuxconfigs/nvim/config/* ~/.config/nvim/
+cp ~/linuxconfigs/setup_files/nvim/init.vim ~/.config/nvim
+cp ~/linuxconfigs/setup_files/nvim/config/* ~/.config/nvim/
 python -V
 python3.6 -V
+python3.7 -V
 
-echo "\n\n\nremember to add init.vim to ~/.config/nvim and use :UpdateRemotePlugins in nvim for python modules"
-echo "Also use PlugInstall! to install in in nvim and check python 2 is still installed correctly"
+echo "\n\n\nremember to change python3.6 to 3.7 in /config/init.vim then use :PlugInstall then :UpdateRemotePlugins in nvim for python modules"
