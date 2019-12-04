@@ -1,5 +1,11 @@
 "Place for plugin configs that are too long for plugins.vimrc
 
+"VIM WIKI - options from Markdown (markdown) or MediaWiki(media) can be used
+"rather than VimWiki(default)
+"let g:vimwiki_list = [{'path': '~/vimwiki/',
+"                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+
 "MINIYANK CONFIG
 "persistant clipboard even for reboots
 let g:miniyank_filename = $HOME."/.miniyank.mpack"

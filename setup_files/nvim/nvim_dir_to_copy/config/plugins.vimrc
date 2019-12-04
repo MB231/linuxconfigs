@@ -3,6 +3,10 @@
 
 "begin plugin call
 call plug#begin()
+
+"VIM WIKI for notes
+Plug 'vimwiki/vimwiki'
+
 "LSP enabled tagbar. fork of original tagbar
 Plug 'liuchengxu/vista.vim'
 

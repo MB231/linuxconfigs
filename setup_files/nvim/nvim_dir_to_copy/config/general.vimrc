@@ -24,3 +24,11 @@ set number
 hi LineTooLong cterm=italic ctermbg=grey ctermfg=black
 :match LineTooLong /\%>120v.\+/
 
+"vim spell check 
+set spelllang=en
+set spellfile=$HOME/.config/nvim/config/en.utf-8.add
+"sets on as default
+"set spell
+"Enable spell only for certain files
+"Use :set filetype?  to find what filetype is detected to add to this list
+autocmd FileType vimwiki setlocal spell

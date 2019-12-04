@@ -35,6 +35,14 @@ map <leader>pp :setlocal paste!<cr>
 " Disable paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
+"SPELLCHECK
+:map zs :setlocal spell! spelllang=en_us<CR>
+
+"VIMWIKI KEYS
+"Remap from default tab and shift tab. Interferes with autocomplete keys
+nmap <Leader>wn <Plug>VimwikiNextLink
+nmap <Leader>wp <Plug>VimwikiPrevLink
+
 "MINIYANK KEYS
 "Currently neovim doesn't have support for register types in the clipboard. This makes blockwise
 "yanking and putting broken when clipboard=unnamed or unnamedplus is used. When this option is
@@ -94,10 +102,9 @@ augroup LSP
   autocmd FileType cpp,c call SetLSPShortcuts()
 augroup END
 
-"S-Tab autocomplete with deoplete plugin. Left Tab in case of makefile use.
-"**Normal Tab example below using up through list command remap. Can't use
-"doesn't work with other functions and tab
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
+"Use C-p and C-n instead tab is used for too many other things
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>" Use if only one
+" available
 "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
