@@ -4,10 +4,10 @@
 #multiple software versions on the same machine with "scl enable llvm-toolset-7 bash"
 echo "Installing and enabling Clang 5"
 sudo yum install centos-release-scl
-sudo yum install llvm-toolset-7
-sudo yum install llvm-toolset-7-clang-tools-extra
-sudo yum install llvm-toolset-7-llvm-devel
-scl enable llvm-toolset-7 bash
+#sudo yum install llvm-toolset-7
+#sudo yum install llvm-toolset-7-clang-tools-extra
+#sudo yum install llvm-toolset-7-llvm-devel
+#scl enable llvm-toolset-7 bash
 echo "Installing and enabling GCC 7"
 sudo yum install devtoolset-7
 scl enable devtoolset-7 bash

@@ -20,3 +20,5 @@ alias cmake="cmake3"
 
 alias buildit="mkdir build;cd build;cmake3 ../ && make -j3"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$HOME/nvim/bin:$PATH"
