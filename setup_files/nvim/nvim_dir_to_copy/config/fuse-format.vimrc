@@ -1,5 +1,5 @@
 "disables formating if no .clang-format file found if 0
-let g:clang_format#enable_fallback_style = 1
+let g:clang_format#enable_fallback_style = 0
 let g:clang_format#detect_style_file = 1
 let g:clang_format#code_style = 'google'
 let g:clang_format#style_options = {

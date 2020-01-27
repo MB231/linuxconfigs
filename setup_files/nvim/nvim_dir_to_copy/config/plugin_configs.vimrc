@@ -16,7 +16,7 @@ let g:miniyank_delete_maxlines = 1000
 
 "ALE LINTER CONFIG
 "LSP to be handled by LanguageClient
-let g:ale_disable_lsp = 1
+let g:ale_disable_lsp = 0
 
 "cppcheck excluded due to excessive cpu usage
 let g:ale_linters = {
