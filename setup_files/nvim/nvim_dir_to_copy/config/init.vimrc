@@ -10,4 +10,17 @@ autocmd WinEnter,BufWinEnter,FocusGained * checktime
 au CursorHold,CursorHoldI * checktime
 
 "must set python3 host manually in centos7 as it doesn't natively support python3
-"let g:python3_host_prog="/usr/bin/python3.6"
+let g:python3_host_prog="/usr/bin/python3.6"
+
+" Set the background theme to dark
+set background = "dark"
+
+" Call the theme one
+syntax on
+
+
+" This line enables the true color support.
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Note, the above line is ignored in Neovim 0.1.5 above, use this line instead.
+set termguicolors

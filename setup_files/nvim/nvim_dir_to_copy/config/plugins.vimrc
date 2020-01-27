@@ -3,6 +3,15 @@
 
 "begin plugin call
 call plug#begin()
+"JEDI python plugin for deoplete with palantir which JEDI uses for a LSP
+Plug 'deoplete-plugins/deoplete-jedi'
+
+"AWESOME_VIM-COLORSCHEMES
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'joshdick/onedark.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+"Plug 'kyoz/purify'
+Plug 'vim-airline/vim-airline-themes'
 
 "VIM WIKI for notes
 Plug 'vimwiki/vimwiki'

@@ -174,7 +174,7 @@ call ale#linter#Define('cpp', {
 
 "LANGUAGECLIENT LSP OPTIONS
 "lets ALE do diagnostics
-let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_diagnosticsEnable = 1
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd', '-background-index',],
   \ 'c': ['clangd', '-background-index',],
@@ -208,6 +208,8 @@ let g:vista_icon_indent = ["╰─> ", "├─> "]
 let g:vista_echo_cursor_strategy = "both"
 "change sidebar width from default 30
 let g:vista_sidebar_width = 50
+"Toggles close window on jump
+let g:vista_close_on_jump = 1
 
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
