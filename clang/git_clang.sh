@@ -12,9 +12,8 @@ git clone https://github.com/llvm-mirror/lld llvm/tools/lld
 
 echo -e "making build dir and running cmake"
 mkdir build
-cd build
-cmake3 -DCMAKE_BUILD_TYPE=Release ../llvm
 pushd ./build
+cmake3 -DCMAKE_BUILD_TYPE=Release ../llvm
 make -j3
 sudo cmake3 --build . --target install
 popd

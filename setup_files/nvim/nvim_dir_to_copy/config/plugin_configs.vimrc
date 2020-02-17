@@ -208,6 +208,8 @@ let g:vista_icon_indent = ["╰─> ", "├─> "]
 let g:vista_echo_cursor_strategy = "both"
 "change sidebar width from default 30
 let g:vista_sidebar_width = 50
+"Toggles close window on jump
+let g:vista_close_on_jump = 1
 
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')

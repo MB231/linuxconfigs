@@ -77,7 +77,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "VISTA Keys
 "
 "to toggle Vista window on/off.
-nnoremap <F8> :Vista!!<CR>
+nnoremap <F8> :Vista lcn<CR>
 
 "LANGUAGECLIENT-NEOVIM Keys
 nnoremap <F3> :call LanguageClient_contextMenu()<CR>
