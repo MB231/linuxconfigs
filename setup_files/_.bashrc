@@ -18,9 +18,8 @@ alias cmake="cmake3"
 #Remove this line to disable and restart bash. no current command for that 6/2019
 #source scl_source enable llvm-toolset-7
 
+alias testit="make clean;make;./build/test"
 alias buildit="mkdir build;cd build;cmake3 ../ && make -j3"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PATH="$HOME/nvim/bin:$PATH"
-# User specific aliases and functions
-BLINKA_FT232H=1

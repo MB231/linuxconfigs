@@ -16,13 +16,18 @@ let g:miniyank_delete_maxlines = 1000
 
 "ALE LINTER CONFIG
 "LSP to be handled by LanguageClient
-let g:ale_disable_lsp = 0
+let g:ale_disable_lsp = 1
 
 "cppcheck excluded due to excessive cpu usage
 let g:ale_linters = {
                 \ 'cpp':['gcc', 'clangtidy'],
                 \ 'c':['gcc', 'clangtidy'],
+                \ 'python':['pyls'],
                 \ }
+" ignore line too long. alternatively change ~.config/flake8 for flake8 global
+" config
+let g:ale_python_flake8_options = '--ignore=e501'
+
 " Only run linters named in ale_linters settings.
 let g:ale_linters_explicit = 1
 "lets deoplete do all completion
