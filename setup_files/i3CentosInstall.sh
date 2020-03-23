@@ -16,3 +16,5 @@ echo "installing python customization to i3 status"
 sudo yum install py3status
 echo "install background manager"
 sudo yum install feh
+
+cp -r ./i3 ~/.config/
