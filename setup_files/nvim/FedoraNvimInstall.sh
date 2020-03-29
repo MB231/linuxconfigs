@@ -31,6 +31,18 @@ curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
 sudo dnf install nodejs
 sudo npm install yarn -g
 
+echo "installing python palantir LSP dependencies"
+sudo pip install -U setuptools #update both pip v2 and v3
+sudo pip3 install -U setuptools
+echo "Installing JEDI"
+sudo pip install jedi
+sudo pip3 install jedi
+echo "Installing Palantir"
+sudo pip install 'python-language-server[all]'
+sudo pip3 install 'python-language-server[all]'
+echo "Installing pynvim to interface neovim with deoplete-jedi"
+sudo pip install pynvim
+sudo pip3 install pynvim
 #using cquery ccls cannot get clang directory for compiler
 #echo "Installing ccls"
 #pushd .

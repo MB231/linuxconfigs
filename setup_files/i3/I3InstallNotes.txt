@@ -1,3 +1,5 @@
 make sure you install pavucontrol for volume control
 nmtui needs to have no ther interfaces\ connections to make it default
     -good for wifi auto connect with password
+Fedora can install i3 without dependencies
+I3 config files are at ~/.config/i3/config
