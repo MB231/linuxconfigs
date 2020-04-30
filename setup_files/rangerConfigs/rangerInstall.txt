@@ -1,0 +1,1 @@
+Ranger configs are installed to ~/.config/ranger/

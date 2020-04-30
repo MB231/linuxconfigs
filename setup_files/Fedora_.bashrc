@@ -18,5 +18,6 @@ export PATH
 # User specific aliases and functions
 BLINKA_FT232H=1
 
+alias testit="make clean;make;./build/test"
 alias buildit="mkdir build;cd build;cmake3 ../ && make -j3"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
