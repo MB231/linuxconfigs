@@ -11,12 +11,12 @@ let wiki_default.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'sh': 'sh'
 
 let default_wiki = copy(wiki_default)
 let default_wiki.path = '~/vimwiki/'
-let default_wiki.diary_rel_path = '~/vimwiki/logbook/'
+let default_wiki.diary_rel_path = 'logbook/'
 let default_wiki.path_html = '~/vimwiki/vimwiki_html/'
 
 let fuse_wiki = copy(wiki_default)
 let fuse_wiki.path = '~/fuseWiki/'
-let fuse_wiki.diary_rel_path = '~/fuseWiki/logbook/'
+let fuse_wiki.diary_rel_path = 'logbook/'
 let fuse_wiki.path_html = '~/fuseWiki/fuseWiki_html/'
 
 let g:vimwiki_list = [default_wiki, fuse_wiki]
