@@ -17,4 +17,6 @@ sudo yum install py3status
 echo "install background manager"
 sudo yum install feh
 
+echo "installing power manager"
+sudo yum install xfce4-power-manager
 cp -r ./i3 ~/.config/
