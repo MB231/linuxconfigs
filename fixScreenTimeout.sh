@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 #change settings
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s noblank
+exec  xset s off
+exec  xset -dpms
+exec  xset s noblank
 
 #for the current session
 

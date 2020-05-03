@@ -56,10 +56,11 @@ Plug 'scrooloose/nerdtree'
 
 "allows addition of characters to both sides of selected text. switched to
 "using mapings to generate. other functions not used
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 "makes repeat '.' work after a plugin map for entire mapping rather than only
 "the native command in the map.
+"Mappings annoying b/c of auto sorrounding when editing old code
 Plug 'tpope/vim-repeat'
 
 "yank ring plugin
@@ -80,6 +81,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+"git wrapper for vim
+Plug 'tpope/vim-fugitive'
 
 "git plugins not being used yet
 
@@ -97,8 +100,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 "Plug 'airblade/vim-gitgutter'
 "shows lines that differ or to be updated, for multiple VCS
 "Plug 'mhinz/vim-signify'
-"git wrapper for vim
-"Plug 'tpope/vim-fugitive'
 
 "COC uninstalled due to inabilty to autocomplete from LSP. May change w/o
 "Centos
