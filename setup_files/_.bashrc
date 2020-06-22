@@ -17,6 +17,8 @@ alias cmake="cmake3"
 #scl enable for llvm don't use "scl enable llvm-toolset-7 bash" except on CLI
 #Remove this line to disable and restart bash. no current command for that 6/2019
 #source scl_source enable llvm-toolset-7
+#gcc8 required now
+source scl_source enable devtoolset-8
 
 alias testit="make clean;make;./build/test"
 alias buildit="rm -rf build;mkdir build;cd build;cmake3 ../ && make -j3"
