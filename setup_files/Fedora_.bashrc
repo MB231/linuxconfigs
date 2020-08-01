@@ -21,3 +21,5 @@ BLINKA_FT232H=1
 alias testit="make clean;make;./build/test"
 alias buildit="mkdir build;cd build;cmake3 ../ && make -j3"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias killswap="rm -f ~/.local/share/nvim/swap/*"
