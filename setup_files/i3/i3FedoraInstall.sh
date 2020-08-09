@@ -8,7 +8,7 @@ sudo dnf install feh
 echo "pavucontrol for audio control install"
 sudo dnf install pavucontrol
 echo "copy config file to user config area"
-cp ./config ~/.config/i3/config
+cp ./i3FedoraConfig ~/.config/i3/config
 echo "installing power manager"
 sudo dnf install xfce4-power-manager
 echo "installing xfce4-terminal"

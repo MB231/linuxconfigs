@@ -54,6 +54,9 @@ sudo pip3 install 'python-language-server[all]'
 echo "Installing pynvim to interface neovim with deoplete-jedi"
 sudo pip install pynvim
 sudo pip3 install pynvim
+
+echo "Installing node js support neovim"
+sudo npm install -g neovim
 #using cquery ccls cannot get clang directory for compiler
 #echo "Installing ccls"
 #pushd .
