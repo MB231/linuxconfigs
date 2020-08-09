@@ -86,8 +86,7 @@ sudo pip3 install pynvim
 #sudo make install
 
 
-cp ~/linuxconfigs/setup_files/nvim/init.vim ~/.config/nvim
-cp ~/linuxconfigs/setup_files/nvim/config/* ~/.config/nvim/
+cp -r ~/linuxconfigs/setup_files/nvim/nvim_dir_to_copy/* ~/.config/nvim/
 python -V
 python3.6 -V
 python3.7 -V
