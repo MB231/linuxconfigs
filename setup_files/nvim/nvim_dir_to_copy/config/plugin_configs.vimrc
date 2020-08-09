@@ -47,7 +47,7 @@ let g:ale_disable_lsp = 1
 let g:ale_linters = {
                 \ 'cpp':['gcc', 'clangtidy'],
                 \ 'c':['gcc', 'clangtidy'],
-                \ 'python':['pyls'],
+                \ 'python':['pyls', 'flake8'],
                 \ }
 " ignore line too long. alternatively change ~.config/flake8 for flake8 global
 " config
