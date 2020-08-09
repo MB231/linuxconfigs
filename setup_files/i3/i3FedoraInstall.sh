@@ -11,6 +11,8 @@ echo "copy config file to user config area"
 cp ./config ~/.config/i3/config
 echo "installing power manager"
 sudo dnf install xfce4-power-manager
+echo "installing xfce4-terminal"
+sudo dnf install xfce4-terminal
 #sets gnome privacy lock screen and screensaver to off. Will blank screen after 10 minutes if on
 gsettings set org.gnome.desktop.screensaver lock-enabled 'false'
 gsettings set org.gnome.desktop.lockdown disable-lock-screen 'false'

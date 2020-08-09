@@ -19,4 +19,6 @@ sudo yum install feh
 
 echo "installing power manager"
 sudo yum install xfce4-power-manager
+echo "installing xfce4-terminal"
+sudo dnf install xfce4-terminal
 cp -r ./i3 ~/.config/
