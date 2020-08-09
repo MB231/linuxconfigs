@@ -45,6 +45,12 @@ sudo pip3 install 'python-language-server[all]'
 echo "Installing pynvim to interface neovim with deoplete-jedi"
 sudo pip install pynvim
 sudo pip3 install pynvim
+echo "Installing pyls"
+sudo pip install pyls
+sudo pip3 install pyls
+echo "Installing flake8"
+sudo pip install flake8
+sudo pip3 install flake8
 
 echo "Installing node js support neovim"
 sudo npm install -g neovim
