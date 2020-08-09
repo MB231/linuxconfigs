@@ -5,6 +5,8 @@ echo "do not run sudo script will ask as required"
 #yum will not install any package past a fail. Seperate lines to debug install fail point
 sudo dnf install make
 sudo dnf install automake
+sudo dnf install cmake
+sudo dnf install clang
 
 #pip3 installs with python37 package
 sudo dnf install python37
