@@ -40,8 +40,8 @@ autocmd InsertLeave * set nopaste
 
 "VIMWIKI KEYS
 "Remap from default tab and shift tab. Interferes with autocomplete keys
-nmap <Leader><Tab> <Plug>VimwikiNextLink
-nmap <Leader><S-Tab> <Plug>VimwikiPrevLink
+nmap <Leader>wn <Plug>VimwikiNextLink
+nmap <Leader>wp <Plug>VimwikiPrevLink
 
 "MINIYANK KEYS
 "Currently neovim doesn't have support for register types in the clipboard. This makes blockwise

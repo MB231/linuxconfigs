@@ -22,6 +22,7 @@ source scl_source enable devtoolset-8
 
 alias testit="make clean;make;./build/test"
 alias buildit="rm -rf build;mkdir build;cd build;cmake3 ../ && make -j3"
+#alias buildit="rm -rf build;mkdir build;cd build;cmake3 ../ -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-pthread"&& make -j3"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PATH="$HOME/nvim/bin:$PATH"
