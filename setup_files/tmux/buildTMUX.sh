@@ -16,12 +16,12 @@ rm -f tmux-${VERSION}.tar.gz
 
 echo "Killing any active tmux then building and installing to /usr/local/src"
 #must kill all running instances before install
-sudo killall -9 tmux
+#sudo killall -9 tmux
 
 cd tmux-${VERSION}
 ./configure
 make
-sudo make install
-cd -
-sudo rm -rf /usr/local/src/tmux-\*
-sudo mv tmux-${VERSION} /usr/local/src
+#sudo make install
+#cd -
+#sudo rm -rf /usr/local/src/tmux-\*
+#sudo mv tmux-${VERSION} /usr/local/src
