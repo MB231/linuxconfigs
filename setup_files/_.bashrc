@@ -37,3 +37,7 @@ else
     ssh-add
     # add keys to the agent
 fi
+
+#Turns off the screen saver and power saving features associated with X11
+xset s off
+xset -dpms

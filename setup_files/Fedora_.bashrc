@@ -23,3 +23,7 @@ alias buildit="mkdir build;cd build;cmake3 ../ && make -j3"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias killswap="rm -f ~/.local/share/nvim/swap/*"
+
+#Turns off the screen saver and power saving features associated with X11
+xset s off
+xset -dpms
