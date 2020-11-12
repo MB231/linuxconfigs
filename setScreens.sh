@@ -79,7 +79,9 @@ do
             xrandr | grep connected
             ;;
 
-         -h|--help)
+        *)
+        #-h|--help) instead of help option just displays help if not a valid command
+            echo "all options need = sign!! e.g -b=.4 not -b 4"
             echo "use -pd to get all displays connected or disconnected"
             echo "-d|--display <display> -db|--displaybrightness <change brightness of display>"
             echo "-b|--brightness <change brightness of all display>"
@@ -90,8 +92,6 @@ do
             echo "-d|--display <display to place> -a|--above <place above this display>"
             echo "-d|--display <display to place> -u|--below <place below this display>"
             echo "-s|--screensaver to turn off screensaver and power saver settings to prevent blank screen"
-            ;;
-        *)
             ;;
     esac
 done
