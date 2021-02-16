@@ -43,14 +43,12 @@ Plug 'SirVer/ultisnips'
 "Scala,Supercolider Snippets for ultisnips to use
 Plug 'honza/vim-snippets'
 
-"adds better status bar powerline is an alternative but heavier
+"adds better status bar powerline is an alternative but heavier. Most
 Plug 'vim-airline/vim-airline'
-"adds buffer number to window tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
 
 "multiple cursor plugin. haven't been using
 "Plug 'terryma/vim-multiple-cursors'
+"
 "filetree browser for quick edits/visual inspection
 Plug 'scrooloose/nerdtree'
 

@@ -68,11 +68,11 @@ map <leader>N <Plug>(miniyank-cycleback
 
 "ALE Keys"
 "to toggle ALE Detail
-nnoremap <F9> :ALEDetail<CR>
-"nnoremap <leader>lD :ALEGoToDefinition<CR>
-"nnoremap <leader>lX :ALEFindReferences<CR>
-"nnoremap <leader>lH :ALEHover<CR>
-"nnoremap <leader>lS :ALESymbolSearch<CR>
+nnoremap <leader>ad :ALEDetail<CR>
+nnoremap <leader>aD :ALEGoToDefinition<CR>
+nnoremap <leader>aX :ALEFindReferences<CR>
+nnoremap <leader>aH :ALEHover<CR>
+nnoremap <leader>aS :ALESymbolSearch<CR>
 
 "ale error skip to
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)

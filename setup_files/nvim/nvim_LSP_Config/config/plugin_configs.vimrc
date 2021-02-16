@@ -245,3 +245,15 @@ lua << EOF
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.pyls.setup{}
 EOF
+"AIRLINE
+"extensions enabled by default, but here explicit opt in of extensions for
+"faster runtime/startup reduce errors
+"tabline adds buffer number to window tabline
+"branch adds fugitive extension
+"fugitiveline makes //**// part of buffer names disappear
+let g:airline_extensions = ['tabline', 'branch', 'fugitiveline', 'fzf', 'nvimlsp', 'ale', 'keymap']
+let airline#extensions#nvimlsp#error_symbol = 'LSP_E:'
+let airline#extensions#nvimlsp#warning_symbol = 'LSP_W:'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+"let g:airline#extensions#tabline#enabled = 1
+
