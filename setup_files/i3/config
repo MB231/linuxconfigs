@@ -68,10 +68,10 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 # h used for vim bindings
-bindsym $mod+b split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -158,5 +158,5 @@ bar {
 # Moving workspaces between screens 
 #bindsym $mod+p move workspace semicolonto output right
 # move focused workspace between monitors
-bindsym $mod+Shift+l move workspace to output right
-bindsym $mod+Shift+h move workspace to output left
+bindsym $mod+Shift+y move workspace to output right
+bindsym $mod+Shift+o move workspace to output left
