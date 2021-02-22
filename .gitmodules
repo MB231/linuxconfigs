@@ -1,0 +1,6 @@
+[submodule "CDE/refs/dimtassStm32CDE"]
+	path = CDE/refs/dimtassStm32CDE
+	url = https://bitbucket.org/dimtass/stm32-cde-template.git
+[submodule "CDE/refs/IAC-Tutorial"]
+	path = CDE/refs/IAC-Tutorial
+	url = https://github.com/Artemmkin/infrastructure-as-code-tutorial.git
