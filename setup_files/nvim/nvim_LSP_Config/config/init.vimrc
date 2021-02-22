@@ -25,3 +25,25 @@ syntax on
 " Note, the above line is ignored in Neovim 0.1.5 above, use this line instead.
 set termguicolors
 
+"FORMAT SETTINGS
+
+set shiftwidth=4
+"smartindent context based indenting can be problematic
+set nosmartindent
+"cindent=strict c version of smartindent
+set cindent
+set tabstop=4
+"expandtab=all tab characters converted to spaces tabstop indicates
+set expandtab
+"basic indenting. keeps whatever indent the line above has
+set autoindent
+
+"if # key is used for commmenting uncomment below to stop indenting
+"set cinkeys -=0#
+"set indentkeys -=0#
+"
+"-= is subtract match, 0 is only if first char switch
+
+"sets tabs to display as > (or ^| if not nvim) and - for spaces. Ends of lines
+"should be & but not seen in nvim
+:set list
