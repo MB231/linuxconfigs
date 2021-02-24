@@ -1,0 +1,37 @@
+---
+- name: Download toolchain
+  become: true
+  get_url:
+    url: "{{ arm_toolchain_url }}"
+    dest: "/home/{{ build_user }}/"
+    
+- name: Create toolchain dir
+  become: true
+  file:
+    path: "{{ toolchain_dir }}"
+    state: directory
+    mode: '0755'
+    recurse: yes
+    owner: "{{ build_user }}"
+    group: "{{ build_user }}"
+
+- name: Extract toolchain
+  become: true
+  unarchive:
+    src: "/home/{{ build_user }}/{{ arm_toolchain_name }}"
+    dest: "{{ toolchain_dir }}/"
+    remote_src: yes
+
+- name: Change ownership of toolchain
+  become: true
+  file:
+    path: "{{ toolchain_dir }}"
+    recurse: yes
+    owner: "{{ build_user }}"
+    group: "{{ build_user }}"
+
+- name: Clean
+  become: true
+  file:
+    path: "/home/{{ build_user }}/{{ arm_toolchain_name }}"
+    state: absent

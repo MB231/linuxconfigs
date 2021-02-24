@@ -1,0 +1,40 @@
+---
+
+- name: Create download dir
+  become: true
+  file:
+    path: "/home/{{ build_user }}/cpputest"
+    state: directory
+    mode: '0755'
+    recurse: yes
+    owner: "{{ build_user }}"
+    group: "{{ build_user }}"
+
+- name: Download cpputest
+  become: true
+  git:
+    repo: 'https://github.com/cpputest/cpputest.git'
+    dest: "/home/{{ build_user }}/cpputest"
+    depth: 1
+    recursive: yes
+
+- name: Compile & install cpputest
+  become: true
+  command: "{{ item }}"
+  with_items:
+  - "autoreconf .. -i"
+  - "../configure"
+  - "/usr/bin/make"
+  - "/usr/bin/make install"
+  args:
+    chdir: "/home/{{ build_user }}/cpputest/cpputest_build/"
+
+- name: Update dynamic library cache
+  become: true
+  command: "ldconfig"
+
+- name: Clean up
+  become: true
+  file:
+    path: "/home/{{ build_user }}/cpputest"
+    state: absent

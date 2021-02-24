@@ -1,0 +1,18 @@
+---
+
+- name: Remove config.toml file
+  become: true
+  file:
+    path: "{{ gitlab_runner_config_file }}"
+    state: absent
+
+- name: Register new runner
+  become: true
+  command: >
+    {{ gitlab_runner_executable }} register
+    --non-interactive
+    --limit '{{ gitlab_runner_concurrent|default(0) }}'
+    --name '{{ gitlab_runner_name }}'
+    --url '{{ gitlab_runner_coordinator_url }}'
+    --registration-token '{{ gitlab_runner_token }}'
+    --executor '{{ gitlab_runner.executor|default("shell") }}'

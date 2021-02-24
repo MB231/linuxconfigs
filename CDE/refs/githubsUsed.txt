@@ -1,0 +1,5 @@
+https://github.com/Artemmkin/infrastructure-as-code-tutorial
+
+https://www.stupid-projects.com/devops-for-embedded-part-1/
+git clone https://bitbucket.org/dimtass/stm32-cde-template.git
+git clone https://bitbucket.org/dimtass/stm32f103-cmake-template.git

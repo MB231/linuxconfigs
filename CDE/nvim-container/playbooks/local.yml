@@ -1,0 +1,7 @@
+- hosts: 127.0.0.1
+  user: root
+  tasks:
+    - name: Install ssh
+      apt:
+        name: ssh
+        state: present

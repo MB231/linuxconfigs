@@ -1,0 +1,7 @@
+---
+# Most of these tasks were based on this repo: https://github.com/riemers/ansible-gitlab-runner
+- name: Install GitLab Runner
+  import_tasks: gitlab-runner-install.yml
+
+- name: Register GitLab Runner
+  import_tasks: gitlab-runner-register.yml

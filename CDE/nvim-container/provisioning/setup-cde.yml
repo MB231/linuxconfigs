@@ -1,0 +1,14 @@
+---
+
+# Setups a target for CDE with an ARM toolchain
+- name: Prepare STM32 CDE image
+  hosts: all
+  remote_user: root
+  vars:
+    gitlab_runner_enabled: "{{ env_gitlab_runner|default(false) }}"
+  roles:
+    - stm32-builder
+    - stlink
+    - arm-toolchain
+    - cpputest
+    - { role: gitlab-runner, when: gitlab_runner_enabled|bool }

@@ -1,0 +1,41 @@
+{
+    "_comment": "Build a docker image for STM32 CDE",
+    "_author": "Dimitris Tassopoulos <dimtass@gmail.com>",
+    "variables": {
+      "cde_version": "0.1",
+      "docker_repo": "dimtass/stm32-cde-image",
+      "build_user": "stm32"
+    },
+    "builders": [{
+      "type": "docker",
+      "image": "ubuntu:16.04",
+      "commit": true
+    }],
+    "provisioners":[
+      {
+        "type": "shell",
+        "inline": [
+          "apt-get -y update",
+          "apt-get -y install python"
+        ]
+      },
+      {
+        "type": "ansible",
+        "user": "root",
+        "playbook_file": "provisioning/setup-cde.yml",
+        "extra_arguments": [
+          "-e env_build_user={{user `build_user`}}"
+        ]
+      }
+    ],
+    "post-processors": [
+      [
+        {
+          "type": "docker-tag",
+          "repository": "{{user `docker_repo`}}",
+          "tag": "{{user `cde_version`}}"
+        },
+        "docker-push"
+      ]
+    ]
+  }

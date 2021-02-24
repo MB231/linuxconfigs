@@ -1,0 +1,59 @@
+---
+
+- name: Create download dir
+  become: true
+  file:
+    path: "/home/{{ build_user }}/stlink"
+    state: directory
+    mode: '0755'
+    recurse: yes
+    owner: "{{ build_user }}"
+    group: "{{ build_user }}"
+
+- name: Download stlink
+  become: true
+  git:
+    repo: 'https://github.com/texane/stlink.git'
+    dest: "/home/{{ build_user }}/stlink"
+    depth: 1
+    recursive: yes
+
+- name: Delete .git folder because it creates issues during build
+  become: true
+  command: rm -rf "/home/{{ build_user }}/stlink/.git"
+
+- name: Compile stlink
+  become: true
+  command: "make release"
+  args:
+    chdir: "/home/{{ build_user }}/stlink"
+
+- name: Install stlink
+  become: true
+  command: "make install"
+  args:
+    chdir: "/home/{{ build_user }}/stlink/build/Release"
+
+- name: Update dynamic library cache
+  become: true
+  command: "ldconfig"
+
+- name: Copy udev rules
+  become: true
+  copy:
+    src: "/home/{{ build_user }}/stlink/etc/udev/rules.d/"
+    dest: /etc/udev/rules.d/
+    directory_mode: yes
+    remote_src: yes
+
+- name: Reload udev rules
+  become: true
+  command: "udevadm control --reload-rules"
+  failed_when: false
+  changed_when: false
+
+- name: Clean up
+  become: true
+  file:
+    path: "/home/{{ build_user }}/stlink"
+    state: absent
