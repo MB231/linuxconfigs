@@ -7,13 +7,12 @@ sudo dnf install make
 sudo dnf install automake
 sudo dnf install cmake
 sudo dnf install clang
+sudo dnf install clang-tools-extra
 
-#pip3 installs with python37 package
-sudo dnf install python37
-sudo dnf install python37-devel
-#uses command sub $(command) to check if python 2 is still called by python command
+echo "installing neovim nightly"
+sudo dnf copr enable agriffis/neovim-nightly
+sudo dnf upgrade neovim python3-neovim
 
-sudo dnf install neovim
 sudo pip install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
 sudo pip3 install --upgrade neovim #remember to us :UpdateRemotePlugins in nvim
 #move and create ~/.local/share/nvim/site/autoload to add plug.vim
