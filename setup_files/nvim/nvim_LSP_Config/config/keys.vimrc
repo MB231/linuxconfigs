@@ -79,10 +79,14 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
-"VISTA Keys
-"
-"to toggle Vista window on/off.
-nnoremap <F8> :Vista lcn<CR>
+"SymbolsOutline (symbol tagbar) Keys
+"Escape --> Close Outline
+"Enter --> GoTo Symbol location in code
+"o --> GoTo Symbol location in code but stay in outline window
+"Ctrl + Space --> Hover current symbol
+"r --> Rename symbol
+"start symbols outline with and use above standard keys
+nnoremap <F8> :SymbolsOutline <CR>
 
 "NVIM-LSP
 nnoremap <silent> <leader>ldia  <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>

@@ -217,28 +217,6 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format_on_insert_leave = 1
 
 
-"VISTA TAGBAR
-"Indent Icon
-let g:vista_icon_indent = ["╰─> ", "├─> "]
-"detailed info of current cursor symbol will be in cmd line and scroll
-let g:vista_echo_cursor_strategy = "both"
-"change sidebar width from default 30
-let g:vista_sidebar_width = 50
-"Toggles close window on jump
-let g:vista_close_on_jump = 1
-
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
-set statusline+=%{NearestMethodOrFunction()}
-
-" By default vista.vim never run if you don't call it explicitly.
-"
-" If you want to show the nearest function in your statusline automatically,
-" you can add the following line to your vimrc 
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
 "NVIM LSP Options
 "Use :LspInfo to get status of active language servers
 lua << EOF
@@ -256,4 +234,44 @@ let airline#extensions#nvimlsp#error_symbol = 'LSP_E:'
 let airline#extensions#nvimlsp#warning_symbol = 'LSP_W:'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 "let g:airline#extensions#tabline#enabled = 1
+
+"SymbolsOutline Config
+lua << EOF
+local opts = {
+    -- whether to highlight the currently hovered symbol
+    -- disable if your cpu usage is higher than you want it
+    -- or you just hate the highlight
+    -- default: true
+    highlight_hovered_item = true,
+
+    -- whether to show outline guides 
+    -- default: true
+    show_guides = true,
+}
+
+require('symbols-outline').setup(opts)
+EOF
+
+"----------------OLD Configs-------------------
+"VISTA TAGBAR
+"Indent Icon
+"let g:vista_icon_indent = ["╰─> ", "├─> "]
+"detailed info of current cursor symbol will be in cmd line and scroll
+"let g:vista_echo_cursor_strategy = "both"
+"change sidebar width from default 30
+"let g:vista_sidebar_width = 50
+"Toggles close window on jump
+"let g:vista_close_on_jump = 1
+
+"function! NearestMethodOrFunction() abort
+  "return get(b:, 'vista_nearest_method_or_function', '')
+"endfunction
+
+"set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc 
+"autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 

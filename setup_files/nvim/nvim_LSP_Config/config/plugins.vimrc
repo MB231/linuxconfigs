@@ -16,9 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 "VIM WIKI for notes
 Plug 'vimwiki/vimwiki'
 
-"LSP enabled tagbar. fork of original tagbar
-Plug 'liuchengxu/vista.vim'
-
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -86,7 +83,24 @@ Plug 'tpope/vim-fugitive'
 Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
 
+"native neovim LSP highlighter.
+"Use :TSInstall <language> to install supported languages
+"use :TSUpdate <language>. To update all parsers unconditionally, use :TSUpdate all or just :TSUpdate
+":TSBufEnable <module> " enable module on current buffer
+":TSBufDisable <module> " disable module on current buffer
+":TSEnableAll <module> [{ft}] " enable module on every buffer. If filetype is specified, enable only for this filetype.
+":TSDisableAll <module> [{ft}] " disable module on every buffer. If filetype is specified, disable only for this filetype.
+":TSModuleInfo [module] " list information about modules state for each filetype
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+"symbols tree similar to vista and tagbar but for neovim 0.5
+Plug 'simrat39/symbols-outline.nvim'
+
 "git plugins not being used yet
+
+"LSP enabled tagbar. fork of original tagbar. No longer in use after
+"switch to builtin neovim lsp. Possibly will be updated to be compatible
+"Plug 'liuchengxu/vista.vim'
 
 "deprecated in favor of more used miniyank
 "adds emacs style kill ring to vim
