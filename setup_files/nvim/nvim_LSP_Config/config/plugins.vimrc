@@ -96,7 +96,20 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "symbols tree similar to vista and tagbar but for neovim 0.5
 Plug 'simrat39/symbols-outline.nvim'
 
+"LSP diagnostics and references
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/lsp-trouble.nvim'
+
+
+
+
 "git plugins not being used yet
+
+"symbols tree similar to vista and tagbar but for neovim 0.5 -Not in use due
+"to incompatibilities with fedora or issues with install
+"Plug 'michaelb/sniprun', {'do': 'bash install.sh 1'}
+    " use 'bash install.sh 1' to get latest version or without 1 for stable
+    " or use 1 if there is trouble with precompiled library
 
 "LSP enabled tagbar. fork of original tagbar. No longer in use after
 "switch to builtin neovim lsp. Possibly will be updated to be compatible

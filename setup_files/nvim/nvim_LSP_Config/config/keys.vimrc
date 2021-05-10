@@ -88,18 +88,26 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "start symbols outline with and use above standard keys
 nnoremap <F8> :SymbolsOutline <CR>
 
-"NVIM-LSP
-nnoremap <silent> <leader>ldia  <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-nnoremap <silent> <leader>ln    <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <leader>lp    <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+"NVIM-LSP/Trouble
+"Diagnostics
+nnoremap <silent> <leader>di    <cmd>LspInfo<CR>
+nnoremap <silent> <leader>dw    <cmd>LspTroubleToggle lsp_workspace_diagnostics<CR>
+nnoremap <silent> <leader>dd    <cmd>LspTroubleToggle lsp_document_diagnostics<CR>
+nnoremap <silent> <leader>dD    <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> <leader>dq    <cmd>LspTroubleToggle quickfix<CR>
+nnoremap <silent> <leader>dl    <cmd>LspTroubleToggle loclist<CR>
+nnoremap <silent> <leader>dR    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>dr    <cmd>LspTroubleToggle lsp_references<CR>
+nnoremap <silent> <leader>dn    <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <leader>dp    <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
+"LSP Commands
 nnoremap <silent> <leader>lD    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>ld    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>ltd   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>lh    <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>li    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <leader>lH    <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <leader>lx    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <leader>lr    <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>ls    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> <leader>lws   <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
@@ -137,6 +145,11 @@ nnoremap <leader>k :m-2<cr>==
 nnoremap <leader>j :m+1<cr>==
 xnoremap <leader>k :m-2<cr>gv=gv
 xnoremap <leader>j :m'>-1<cr>gv=gv
+
+"SnipRun
+nnoremap <leader>ff <Plug>SnipRun
+nnoremap <leader>f <Plug>SnipRunOperator
+vmap f <Plug>SnipRun
 
 "COC tab completion. Uses <tab> for trigger completion and navigate to the next complete item
 "function! s:check_back_space() abort

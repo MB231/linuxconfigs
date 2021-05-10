@@ -220,8 +220,10 @@ let g:clang_format#auto_format_on_insert_leave = 1
 "NVIM LSP Options
 "Use :LspInfo to get status of active language servers
 lua << EOF
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyls.setup{}
+    require'lspconfig'.clangd.setup{}
+    --require'lspconfig'.pyls.setup{} pyls no longer used since it doesn't work with nvim-lsp
+    require'lspconfig'.rust_analyzer.setup{}
+    require'lspconfig'.pyright.setup{}
 EOF
 "AIRLINE
 "extensions enabled by default, but here explicit opt in of extensions for
@@ -252,6 +254,13 @@ local opts = {
 require('symbols-outline').setup(opts)
 EOF
 
+"LSP-TROUBLE Config - NVIM LSP Diagnostic tool
+"CAN'T FIND MODULE FOR SOME REASON. Works w/o
+"lua << EOF
+"  require("lua/trouble/trouble").setup {
+    "--config goes here or is empty for defualt
+  "}
+"EOF
 "----------------OLD Configs-------------------
 "VISTA TAGBAR
 "Indent Icon
