@@ -100,7 +100,10 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/lsp-trouble.nvim'
 
-
+"LSP diagnostics and references
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 
 "git plugins not being used yet

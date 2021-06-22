@@ -36,6 +36,15 @@ sudo dnf module install nodejs:12 #install nodejs 12 (pyright min)
 #sudo n <stable,latest, version #> #define release to use
 sudo npm install yarn -g
 
+echo "install Javascript and Truescript dependecies"
+curl -sL https://rpm.nodesource.com/setup_12.x |sudo bash -
+sudo dnf update -y nodejs:12
+sudo dnf install libatomic
+#ts server install, flow server and it's "compiler" (type stripper) are done per project
+#also typescript install
+sudo npm install -g typescript-language-server typescript
+node -v
+
 echo "installing python palantir LSP dependencies"
 sudo pip install -U setuptools 
 echo "Installing JEDI"

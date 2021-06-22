@@ -96,12 +96,12 @@ nnoremap <silent> <leader>dd    <cmd>LspTroubleToggle lsp_document_diagnostics<C
 nnoremap <silent> <leader>dD    <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent> <leader>dq    <cmd>LspTroubleToggle quickfix<CR>
 nnoremap <silent> <leader>dl    <cmd>LspTroubleToggle loclist<CR>
-nnoremap <silent> <leader>dR    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> <leader>dr    <cmd>LspTroubleToggle lsp_references<CR>
 nnoremap <silent> <leader>dn    <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> <leader>dp    <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
 "LSP Commands
+nnoremap <silent> <leader>lX    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>lx    <cmd>LspTroubleToggle lsp_references<CR>
 nnoremap <silent> <leader>lD    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>ld    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>ltd   <cmd>lua vim.lsp.buf.type_definition()<CR>

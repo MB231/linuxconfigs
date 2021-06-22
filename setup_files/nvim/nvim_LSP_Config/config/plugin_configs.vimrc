@@ -47,9 +47,13 @@ let g:ale_linters = {
                 \ 'cpp':['gcc', 'clangtidy'],
                 \ 'c':['gcc', 'clangtidy'],
                 \ 'python':['pyls', 'flake8'],
+                \ 'javascript':['flow'],
                 \ }
-" ignore line too long. alternatively change ~.config/flake8 for flake8 global
-" config
+"express ignore though explicit should prevent this
+let g:ale_linters_ignore = {
+                \ 'javascript':['tsserver'],
+                \ }
+" ignore line too long. alternatively change ~.config/flake8 for flake8 global config
 let g:ale_python_flake8_options = '--ignore=e501'
 
 " Only run linters named in ale_linters settings.
@@ -220,10 +224,26 @@ let g:clang_format#auto_format_on_insert_leave = 1
 "NVIM LSP Options
 "Use :LspInfo to get status of active language servers
 lua << EOF
-    require'lspconfig'.clangd.setup{}
+    require'lspconfig'.clangd.setup{
+        cmd = { "clangd", "-j=2", "-log=verbose" }
+    }
     --require'lspconfig'.pyls.setup{} pyls no longer used since it doesn't work with nvim-lsp
     require'lspconfig'.rust_analyzer.setup{}
     require'lspconfig'.pyright.setup{}
+    require'lspconfig'.tsserver.setup{
+        cmd = { "typescript-language-server", "--stdio" };
+        -- javascript removed from filetypes, but are there as default
+        filetypes = { "typescript", "typescriptreact", "typescript.tsx" };
+        --call to root_pattern doesn't seem to work but is described as default in configs
+        --root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git");
+    }
+    -- 
+    require'lspconfig'.flow.setup{
+        cmd = { "npx", "--no-install", "flow", "lsp" };
+        filetypes = { "javascript", "javascriptreact", "javascript.jsx" };
+        --call to root_pattern doesn't seem to work but is described as default in configs
+        --root_dir = root_pattern(".flowconfig");
+    }
 EOF
 "AIRLINE
 "extensions enabled by default, but here explicit opt in of extensions for
@@ -261,6 +281,62 @@ EOF
     "--config goes here or is empty for defualt
   "}
 "EOF
+
+
+"NVIM TELESCOPE CONFIG
+"
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    prompt_position = "bottom",
+    prompt_prefix = "> ",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_defaults = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    shorten_path = true,
+    winblend = 0,
+    width = 0.75,
+    preview_cutoff = 120,
+    results_height = 1,
+    results_width = 0.8,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    color_devicons = true,
+    use_less = true,
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  }
+}
+EOF
+
 "----------------OLD Configs-------------------
 "VISTA TAGBAR
 "Indent Icon
